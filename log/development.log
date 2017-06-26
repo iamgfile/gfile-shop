@@ -457,3 +457,1893 @@ Processing by ProductsController#show as HTML
 Completed 200 OK in 145ms (Views: 88.9ms | ActiveRecord: 0.3ms)
 
 
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to AddGoogleauthToUser (20170626081521)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (2.7ms)[0m  [1m[35mALTER TABLE "users" ADD "provider" varchar[0m
+  [1m[35m (0.2ms)[0m  [1m[35mALTER TABLE "users" ADD "uid" varchar[0m
+  [1m[35m (0.2ms)[0m  [1m[35mALTER TABLE "users" ADD "token" varchar[0m
+  [1m[35m (0.2ms)[0m  [1m[35mALTER TABLE "users" ADD "meta" varchar[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20170626081521"]]
+  [1m[35m (13.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_unlock_token' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_unlock_token' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_confirmation_token' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_confirmation_token' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_reset_password_token' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_reset_password_token' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_email' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_email' AND type='index'
+[0m
+Started GET "/" for 127.0.0.1 at 2017-06-26 17:30:09 +0900
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by ProductsController#index as HTML
+  Rendering products/index.html.erb within layouts/application
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  Rendered products/index.html.erb within layouts/application (31.3ms)
+Completed 200 OK in 412ms (Views: 389.5ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/products/3" for 127.0.0.1 at 2017-06-26 17:30:12 +0900
+Processing by ProductsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering products/show.html.erb within layouts/application
+  Rendered products/show.html.erb within layouts/application (1.2ms)
+Completed 200 OK in 96ms (Views: 92.5ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-06-26 17:30:43 +0900
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by ProductsController#index as HTML
+Completed 401 Unauthorized in 24ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2017-06-26 17:30:43 +0900
+Processing by Users::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/sessions/new.html.erb within layouts/application (401.6ms)
+Completed 500 Internal Server Error in 471ms (ActiveRecord: 0.5ms)
+
+
+  
+ActionView::Template::Error (undefined method `user_omniauth_authorize_path' for #<#<Class:0x832e5f44>:0x832bb820>
+Did you mean?  user_google_oauth2_omniauth_authorize_path):
+    19:   <% end -%>
+    20: 
+    21:   <div class="actions">
+    22:     <%= link_to 'Signin with Google', user_omniauth_authorize_path(:google) %>
+    23:     <%= f.submit "Log in" %>
+    24:   </div>
+    25: <% end %>
+  
+app/views/devise/sessions/new.html.erb:22:in `block in _app_views_devise_sessions_new_html_erb___430700391__1047314698'
+app/views/devise/sessions/new.html.erb:3:in `_app_views_devise_sessions_new_html_erb___430700391__1047314698'
+Started GET "/users/sign_in" for 127.0.0.1 at 2017-06-26 17:31:47 +0900
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Users::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/sessions/new.html.erb within layouts/application (579.8ms)
+Completed 500 Internal Server Error in 653ms (ActiveRecord: 0.7ms)
+
+
+  
+ActionView::Template::Error (undefined method `user_omniauth_authorize_path' for #<#<Class:0x828afa5c>:0x8256fe8c>
+Did you mean?  user_google_oauth2_omniauth_authorize_path):
+    19:   <% end -%>
+    20: 
+    21:   <div class="actions">
+    22:     <%= link_to 'Signin with Google', user_omniauth_authorize_path(:google_oauth2) %>
+    23:     <%= f.submit "Log in" %>
+    24:   </div>
+    25: <% end %>
+  
+app/views/devise/sessions/new.html.erb:22:in `block in _app_views_devise_sessions_new_html_erb__444234966__1054272458'
+app/views/devise/sessions/new.html.erb:3:in `_app_views_devise_sessions_new_html_erb__444234966__1054272458'
+Started GET "/users/sign_in" for 127.0.0.1 at 2017-06-26 17:33:56 +0900
+Processing by Users::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/sessions/new.html.erb within layouts/application (379.6ms)
+Completed 500 Internal Server Error in 393ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionView::Template::Error (undefined method `user_omniauth_authorize_path' for #<#<Class:0x828afa5c>:0x82c80640>
+Did you mean?  user_google_oauth2_omniauth_authorize_path):
+    17:       <%= f.label :remember_me %>
+    18:     </div>
+    19:   <% end -%>
+    20:     <%= link_to 'Signin with Google', user_omniauth_authorize_path(:google_oauth2) %>
+    21: 
+    22:   <div class="actions">
+    23:     <%= f.submit "Log in" %>
+  
+app/views/devise/sessions/new.html.erb:20:in `block in _app_views_devise_sessions_new_html_erb__444234966__634178218'
+app/views/devise/sessions/new.html.erb:3:in `_app_views_devise_sessions_new_html_erb__444234966__634178218'
+Started GET "/users/sign_in" for 127.0.0.1 at 2017-06-26 17:34:49 +0900
+Processing by Users::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (2.1ms) [cache miss]
+  Rendered devise/sessions/new.html.erb within layouts/application (15.6ms)
+Completed 200 OK in 301ms (Views: 300.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2017-06-26 17:34:51 +0900
+Processing by Users::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (1.1ms) [cache miss]
+  Rendered devise/sessions/new.html.erb within layouts/application (7.5ms)
+Completed 200 OK in 59ms (Views: 58.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2017-06-26 17:34:53 +0900
+Processing by Users::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (6.8ms) [cache miss]
+  Rendered devise/sessions/new.html.erb within layouts/application (10.1ms)
+Completed 200 OK in 131ms (Views: 129.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/auth/google_oauth2" for 127.0.0.1 at 2017-06-26 17:34:54 +0900
+Started GET "/users/auth/google_oauth2" for 127.0.0.1 at 2017-06-26 17:34:54 +0900
+Started GET "/users/sign_in" for 127.0.0.1 at 2017-06-26 17:37:09 +0900
+Processing by Users::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/sessions/new.html.erb within layouts/application (527.1ms)
+Completed 500 Internal Server Error in 542ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionView::Template::Error (undefined method `user_omniauth_authrize_path' for #<#<Class:0x828afa5c>:0xb2ac5d5c>
+Did you mean?  user_google_oauth2_omniauth_authorize_path):
+    17:       <%= f.label :remember_me %>
+    18:     </div>
+    19:   <% end -%>
+    20:     <%= link_to 'Signin with Google', user_omniauth_authrize_path(:google)  %>
+    21: 
+    22:   <div class="actions">
+    23:     <%= f.submit "Log in" %>
+  
+app/views/devise/sessions/new.html.erb:20:in `block in _app_views_devise_sessions_new_html_erb__444234966__648666428'
+app/views/devise/sessions/new.html.erb:3:in `_app_views_devise_sessions_new_html_erb__444234966__648666428'
+Started GET "/users/sign_in" for 127.0.0.1 at 2017-06-26 17:40:38 +0900
+Processing by Users::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/sessions/new.html.erb within layouts/application (769.1ms)
+Completed 500 Internal Server Error in 787ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionView::Template::Error (undefined local variable or method `provider' for #<#<Class:0x828afa5c>:0xb4c9bad0>
+Did you mean?  provide):
+    17:       <%= f.label :remember_me %>
+    18:     </div>
+    19:   <% end -%>
+    20:     <%= link_to 'Signin with Google', user_omniauth_authrize_path(:google, provider)  %>
+    21: 
+    22:   <div class="actions">
+    23:     <%= f.submit "Log in" %>
+  
+app/views/devise/sessions/new.html.erb:20:in `block in _app_views_devise_sessions_new_html_erb__444234966__630926978'
+app/views/devise/sessions/new.html.erb:3:in `_app_views_devise_sessions_new_html_erb__444234966__630926978'
+Started GET "/users/sign_in" for 127.0.0.1 at 2017-06-26 17:42:00 +0900
+Processing by Users::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (1.0ms) [cache miss]
+  Rendered devise/sessions/new.html.erb within layouts/application (5.1ms)
+Completed 200 OK in 88ms (Views: 86.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/auth/google_oauth2" for 127.0.0.1 at 2017-06-26 17:42:02 +0900
+Started GET "/users/auth/google_oauth2" for 127.0.0.1 at 2017-06-26 17:42:02 +0900
+Started GET "/users/auth/google_oauth2" for 127.0.0.1 at 2017-06-26 17:43:25 +0900
+Started GET "/users/auth/google_oauth2" for 127.0.0.1 at 2017-06-26 17:43:26 +0900
+Started GET "/users/auth/google_oauth2" for 127.0.0.1 at 2017-06-26 17:49:04 +0900
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  
+ActionController::RoutingError (No route matches [GET] "/users/auth/google_oauth2"):
+  
+actionpack (5.1.1) lib/action_dispatch/middleware/debug_exceptions.rb:63:in `call'
+web-console (3.5.1) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.5.1) lib/web_console/middleware.rb:28:in `block in call'
+web-console (3.5.1) lib/web_console/middleware.rb:18:in `catch'
+web-console (3.5.1) lib/web_console/middleware.rb:18:in `call'
+actionpack (5.1.1) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.1.1) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.1.1) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.1.1) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.1.1) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.1.1) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.1.1) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.0) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.1.1) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.1.1) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+rack (2.0.3) lib/rack/method_override.rb:22:in `call'
+rack (2.0.3) lib/rack/runtime.rb:22:in `call'
+activesupport (5.1.1) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+actionpack (5.1.1) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.1) lib/action_dispatch/middleware/static.rb:125:in `call'
+rack (2.0.3) lib/rack/sendfile.rb:111:in `call'
+railties (5.1.1) lib/rails/engine.rb:522:in `call'
+puma (3.9.1) lib/puma/configuration.rb:224:in `call'
+puma (3.9.1) lib/puma/server.rb:602:in `handle_request'
+puma (3.9.1) lib/puma/server.rb:435:in `process_client'
+puma (3.9.1) lib/puma/server.rb:299:in `block in run'
+puma (3.9.1) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+Started GET "/users/auth/google_oauth2" for 127.0.0.1 at 2017-06-26 17:49:09 +0900
+  
+ActionController::RoutingError (No route matches [GET] "/users/auth/google_oauth2"):
+  
+actionpack (5.1.1) lib/action_dispatch/middleware/debug_exceptions.rb:63:in `call'
+web-console (3.5.1) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.5.1) lib/web_console/middleware.rb:28:in `block in call'
+web-console (3.5.1) lib/web_console/middleware.rb:18:in `catch'
+web-console (3.5.1) lib/web_console/middleware.rb:18:in `call'
+actionpack (5.1.1) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.1.1) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.1.1) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.1.1) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.1.1) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.1.1) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.1.1) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.0) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.1.1) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.1.1) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+rack (2.0.3) lib/rack/method_override.rb:22:in `call'
+rack (2.0.3) lib/rack/runtime.rb:22:in `call'
+activesupport (5.1.1) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+actionpack (5.1.1) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.1) lib/action_dispatch/middleware/static.rb:125:in `call'
+rack (2.0.3) lib/rack/sendfile.rb:111:in `call'
+railties (5.1.1) lib/rails/engine.rb:522:in `call'
+puma (3.9.1) lib/puma/configuration.rb:224:in `call'
+puma (3.9.1) lib/puma/server.rb:602:in `handle_request'
+puma (3.9.1) lib/puma/server.rb:435:in `process_client'
+puma (3.9.1) lib/puma/server.rb:299:in `block in run'
+puma (3.9.1) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+Started GET "/users/sign_in" for 127.0.0.1 at 2017-06-26 17:49:14 +0900
+Processing by Users::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (6.9ms) [cache miss]
+  Rendered devise/sessions/new.html.erb within layouts/application (61.7ms)
+Completed 200 OK in 616ms (Views: 518.2ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2017-06-26 17:52:06 +0900
+Processing by Users::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/sessions/new.html.erb within layouts/application (657.2ms)
+Completed 500 Internal Server Error in 675ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionView::Template::Error (undefined method `user_omniauth_authorize_path' for #<#<Class:0x8324407c>:0x83d1ec18>
+Did you mean?  user_google_omniauth_authorize_path):
+    18:     </div>
+    19:   <% end -%>
+    20: 
+    21:     <%= link_to 'Signin with Google', user_omniauth_authorize_path(:google) %>
+    22: 
+    23: 
+    24:   <div class="actions">
+  
+app/views/devise/sessions/new.html.erb:21:in `block in _app_views_devise_sessions_new_html_erb__1055706072__1041700328'
+app/views/devise/sessions/new.html.erb:3:in `_app_views_devise_sessions_new_html_erb__1055706072__1041700328'
+Started GET "/users/sign_in" for 127.0.0.1 at 2017-06-26 17:52:56 +0900
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Users::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/sessions/new.html.erb within layouts/application (700.0ms)
+Completed 500 Internal Server Error in 746ms (ActiveRecord: 0.6ms)
+
+
+  
+ActionView::Template::Error (undefined method `user_omniauth_authorize_path' for #<#<Class:0x833a1604>:0x8339d1d0>
+Did you mean?  user_google_omniauth_authorize_path):
+    18:     </div>
+    19:   <% end -%>
+    20: 
+    21:     <%= link_to 'Signin with Google', user_omniauth_authorize_path(:google) %>
+    22: 
+    23: 
+    24:   <div class="actions">
+  
+app/views/devise/sessions/new.html.erb:21:in `block in _app_views_devise_sessions_new_html_erb__929218233__1046785058'
+app/views/devise/sessions/new.html.erb:3:in `_app_views_devise_sessions_new_html_erb__929218233__1046785058'
+Started GET "/users/sign_in" for 127.0.0.1 at 2017-06-26 17:53:06 +0900
+Processing by Users::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/sessions/new.html.erb within layouts/application (378.4ms)
+Completed 500 Internal Server Error in 390ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionView::Template::Error (undefined method `user_omniauth_authorize_path' for #<#<Class:0x833a1604>:0x83478d20>
+Did you mean?  user_google_omniauth_authorize_path):
+    18:     </div>
+    19:   <% end -%>
+    20: 
+    21:     <%= link_to 'Signin with Google', user_omniauth_authorize_path(:google) %>
+    22: 
+    23: 
+    24:   <div class="actions">
+  
+app/views/devise/sessions/new.html.erb:21:in `block in _app_views_devise_sessions_new_html_erb__929218233__1046243728'
+app/views/devise/sessions/new.html.erb:3:in `_app_views_devise_sessions_new_html_erb__929218233__1046243728'
+Started GET "/users/" for 127.0.0.1 at 2017-06-26 17:53:09 +0900
+  
+ActionController::RoutingError (No route matches [GET] "/users"):
+  
+actionpack (5.1.1) lib/action_dispatch/middleware/debug_exceptions.rb:63:in `call'
+web-console (3.5.1) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.5.1) lib/web_console/middleware.rb:28:in `block in call'
+web-console (3.5.1) lib/web_console/middleware.rb:18:in `catch'
+web-console (3.5.1) lib/web_console/middleware.rb:18:in `call'
+actionpack (5.1.1) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.1.1) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.1.1) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.1.1) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.1.1) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.1.1) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.1.1) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.0) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.1.1) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.1.1) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+rack (2.0.3) lib/rack/method_override.rb:22:in `call'
+rack (2.0.3) lib/rack/runtime.rb:22:in `call'
+activesupport (5.1.1) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+actionpack (5.1.1) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.1) lib/action_dispatch/middleware/static.rb:125:in `call'
+rack (2.0.3) lib/rack/sendfile.rb:111:in `call'
+railties (5.1.1) lib/rails/engine.rb:522:in `call'
+puma (3.9.1) lib/puma/configuration.rb:224:in `call'
+puma (3.9.1) lib/puma/server.rb:602:in `handle_request'
+puma (3.9.1) lib/puma/server.rb:435:in `process_client'
+puma (3.9.1) lib/puma/server.rb:299:in `block in run'
+puma (3.9.1) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+Started GET "/users/" for 127.0.0.1 at 2017-06-26 17:53:14 +0900
+  
+ActionController::RoutingError (No route matches [GET] "/users"):
+  
+actionpack (5.1.1) lib/action_dispatch/middleware/debug_exceptions.rb:63:in `call'
+web-console (3.5.1) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.5.1) lib/web_console/middleware.rb:28:in `block in call'
+web-console (3.5.1) lib/web_console/middleware.rb:18:in `catch'
+web-console (3.5.1) lib/web_console/middleware.rb:18:in `call'
+actionpack (5.1.1) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.1.1) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.1.1) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.1.1) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.1.1) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.1.1) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.1.1) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.0) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.1.1) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.1.1) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+rack (2.0.3) lib/rack/method_override.rb:22:in `call'
+rack (2.0.3) lib/rack/runtime.rb:22:in `call'
+activesupport (5.1.1) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+actionpack (5.1.1) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.1) lib/action_dispatch/middleware/static.rb:125:in `call'
+rack (2.0.3) lib/rack/sendfile.rb:111:in `call'
+railties (5.1.1) lib/rails/engine.rb:522:in `call'
+puma (3.9.1) lib/puma/configuration.rb:224:in `call'
+puma (3.9.1) lib/puma/server.rb:602:in `handle_request'
+puma (3.9.1) lib/puma/server.rb:435:in `process_client'
+puma (3.9.1) lib/puma/server.rb:299:in `block in run'
+puma (3.9.1) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+Started GET "/" for 127.0.0.1 at 2017-06-26 17:53:17 +0900
+Processing by ProductsController#index as HTML
+Completed 401 Unauthorized in 4ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2017-06-26 17:53:17 +0900
+Processing by Users::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (2.8ms) [cache miss]
+  Rendered devise/sessions/new.html.erb within layouts/application (6.3ms)
+Completed 200 OK in 321ms (Views: 319.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/auth/google" for 127.0.0.1 at 2017-06-26 17:53:20 +0900
+Started GET "/users/auth/google" for 127.0.0.1 at 2017-06-26 17:53:20 +0900
+Started GET "/users/auth/google/callback?state=d12daab97200b9c23e36a805fd2b98b5017dc67272d34ee4&code=4/9QjVZqFqo0KniuGoyj36qGPpnCmltcwemNY7RXzz0Dc" for 127.0.0.1 at 2017-06-26 17:53:22 +0900
+  
+AbstractController::ActionNotFound (The action 'google' could not be found for Devise::OmniauthCallbacksController):
+  
+actionpack (5.1.1) lib/abstract_controller/base.rb:119:in `process'
+actionview (5.1.1) lib/action_view/rendering.rb:30:in `process'
+actionpack (5.1.1) lib/action_controller/metal.rb:189:in `dispatch'
+actionpack (5.1.1) lib/action_controller/metal.rb:253:in `dispatch'
+actionpack (5.1.1) lib/action_dispatch/routing/route_set.rb:49:in `dispatch'
+actionpack (5.1.1) lib/action_dispatch/routing/route_set.rb:31:in `serve'
+actionpack (5.1.1) lib/action_dispatch/routing/mapper.rb:16:in `block in <class:Constraints>'
+actionpack (5.1.1) lib/action_dispatch/routing/mapper.rb:46:in `serve'
+actionpack (5.1.1) lib/action_dispatch/journey/router.rb:46:in `block in serve'
+actionpack (5.1.1) lib/action_dispatch/journey/router.rb:33:in `each'
+actionpack (5.1.1) lib/action_dispatch/journey/router.rb:33:in `serve'
+actionpack (5.1.1) lib/action_dispatch/routing/route_set.rb:832:in `call'
+omniauth (1.6.1) lib/omniauth/strategy.rb:407:in `call_app!'
+omniauth (1.6.1) lib/omniauth/strategy.rb:361:in `callback_phase'
+omniauth-oauth2 (1.4.0) lib/omniauth/strategies/oauth2.rb:75:in `callback_phase'
+omniauth (1.6.1) lib/omniauth/strategy.rb:230:in `callback_call'
+omniauth (1.6.1) lib/omniauth/strategy.rb:187:in `call!'
+omniauth (1.6.1) lib/omniauth/strategy.rb:167:in `call'
+warden (1.2.7) lib/warden/manager.rb:36:in `block in call'
+warden (1.2.7) lib/warden/manager.rb:35:in `catch'
+warden (1.2.7) lib/warden/manager.rb:35:in `call'
+rack (2.0.3) lib/rack/etag.rb:25:in `call'
+rack (2.0.3) lib/rack/conditional_get.rb:25:in `call'
+rack (2.0.3) lib/rack/head.rb:12:in `call'
+rack (2.0.3) lib/rack/session/abstract/id.rb:232:in `context'
+rack (2.0.3) lib/rack/session/abstract/id.rb:226:in `call'
+actionpack (5.1.1) lib/action_dispatch/middleware/cookies.rb:613:in `call'
+activerecord (5.1.1) lib/active_record/migration.rb:556:in `call'
+actionpack (5.1.1) lib/action_dispatch/middleware/callbacks.rb:26:in `block in call'
+activesupport (5.1.1) lib/active_support/callbacks.rb:97:in `run_callbacks'
+actionpack (5.1.1) lib/action_dispatch/middleware/callbacks.rb:24:in `call'
+actionpack (5.1.1) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.1) lib/action_dispatch/middleware/debug_exceptions.rb:59:in `call'
+web-console (3.5.1) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.5.1) lib/web_console/middleware.rb:28:in `block in call'
+web-console (3.5.1) lib/web_console/middleware.rb:18:in `catch'
+web-console (3.5.1) lib/web_console/middleware.rb:18:in `call'
+actionpack (5.1.1) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.1.1) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.1.1) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.1.1) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.1.1) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.1.1) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.1.1) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.0) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.1.1) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.1.1) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+rack (2.0.3) lib/rack/method_override.rb:22:in `call'
+rack (2.0.3) lib/rack/runtime.rb:22:in `call'
+activesupport (5.1.1) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+actionpack (5.1.1) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.1) lib/action_dispatch/middleware/static.rb:125:in `call'
+rack (2.0.3) lib/rack/sendfile.rb:111:in `call'
+railties (5.1.1) lib/rails/engine.rb:522:in `call'
+puma (3.9.1) lib/puma/configuration.rb:224:in `call'
+puma (3.9.1) lib/puma/server.rb:602:in `handle_request'
+puma (3.9.1) lib/puma/server.rb:435:in `process_client'
+puma (3.9.1) lib/puma/server.rb:299:in `block in run'
+puma (3.9.1) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+Started GET "/users/auth/google/callback?state=d12daab97200b9c23e36a805fd2b98b5017dc67272d34ee4&code=4/9QjVZqFqo0KniuGoyj36qGPpnCmltcwemNY7RXzz0Dc" for 127.0.0.1 at 2017-06-26 17:55:07 +0900
+  
+ArgumentError (Invalid route name, already in use: 'new_user_session' 
+You may have defined two routes with the same name using the `:as` option, or you may be overriding a route already defined by a resource with the same naming. For the latter, you can restrict the routes created with `resources` as explained here: 
+http://guides.rubyonrails.org/routing.html#restricting-the-routes-created):
+  
+config/routes.rb:10:in `block in <top (required)>'
+config/routes.rb:1:in `<top (required)>'
+Started GET "/users/auth/google/callback?state=d12daab97200b9c23e36a805fd2b98b5017dc67272d34ee4&code=4/3e9XrMkbH441zrRpyq8VEMJgNRZ_UubaezP4QZFGl9I" for 127.0.0.1 at 2017-06-26 17:55:18 +0900
+  
+AbstractController::ActionNotFound (The action 'google' could not be found for Devise::OmniauthCallbacksController):
+  
+actionpack (5.1.1) lib/abstract_controller/base.rb:119:in `process'
+actionview (5.1.1) lib/action_view/rendering.rb:30:in `process'
+actionpack (5.1.1) lib/action_controller/metal.rb:189:in `dispatch'
+actionpack (5.1.1) lib/action_controller/metal.rb:253:in `dispatch'
+actionpack (5.1.1) lib/action_dispatch/routing/route_set.rb:49:in `dispatch'
+actionpack (5.1.1) lib/action_dispatch/routing/route_set.rb:31:in `serve'
+actionpack (5.1.1) lib/action_dispatch/routing/mapper.rb:16:in `block in <class:Constraints>'
+actionpack (5.1.1) lib/action_dispatch/routing/mapper.rb:46:in `serve'
+actionpack (5.1.1) lib/action_dispatch/journey/router.rb:46:in `block in serve'
+actionpack (5.1.1) lib/action_dispatch/journey/router.rb:33:in `each'
+actionpack (5.1.1) lib/action_dispatch/journey/router.rb:33:in `serve'
+actionpack (5.1.1) lib/action_dispatch/routing/route_set.rb:832:in `call'
+omniauth (1.6.1) lib/omniauth/strategy.rb:407:in `call_app!'
+omniauth (1.6.1) lib/omniauth/strategy.rb:361:in `callback_phase'
+omniauth-oauth2 (1.4.0) lib/omniauth/strategies/oauth2.rb:75:in `callback_phase'
+omniauth (1.6.1) lib/omniauth/strategy.rb:230:in `callback_call'
+omniauth (1.6.1) lib/omniauth/strategy.rb:187:in `call!'
+omniauth (1.6.1) lib/omniauth/strategy.rb:167:in `call'
+warden (1.2.7) lib/warden/manager.rb:36:in `block in call'
+warden (1.2.7) lib/warden/manager.rb:35:in `catch'
+warden (1.2.7) lib/warden/manager.rb:35:in `call'
+rack (2.0.3) lib/rack/etag.rb:25:in `call'
+rack (2.0.3) lib/rack/conditional_get.rb:25:in `call'
+rack (2.0.3) lib/rack/head.rb:12:in `call'
+rack (2.0.3) lib/rack/session/abstract/id.rb:232:in `context'
+rack (2.0.3) lib/rack/session/abstract/id.rb:226:in `call'
+actionpack (5.1.1) lib/action_dispatch/middleware/cookies.rb:613:in `call'
+activerecord (5.1.1) lib/active_record/migration.rb:556:in `call'
+actionpack (5.1.1) lib/action_dispatch/middleware/callbacks.rb:26:in `block in call'
+activesupport (5.1.1) lib/active_support/callbacks.rb:97:in `run_callbacks'
+actionpack (5.1.1) lib/action_dispatch/middleware/callbacks.rb:24:in `call'
+actionpack (5.1.1) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.1) lib/action_dispatch/middleware/debug_exceptions.rb:59:in `call'
+web-console (3.5.1) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.5.1) lib/web_console/middleware.rb:28:in `block in call'
+web-console (3.5.1) lib/web_console/middleware.rb:18:in `catch'
+web-console (3.5.1) lib/web_console/middleware.rb:18:in `call'
+actionpack (5.1.1) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.1.1) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.1.1) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.1.1) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.1.1) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.1.1) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.1.1) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.0) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.1.1) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.1.1) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+rack (2.0.3) lib/rack/method_override.rb:22:in `call'
+rack (2.0.3) lib/rack/runtime.rb:22:in `call'
+activesupport (5.1.1) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+actionpack (5.1.1) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.1) lib/action_dispatch/middleware/static.rb:125:in `call'
+rack (2.0.3) lib/rack/sendfile.rb:111:in `call'
+railties (5.1.1) lib/rails/engine.rb:522:in `call'
+puma (3.9.1) lib/puma/configuration.rb:224:in `call'
+puma (3.9.1) lib/puma/server.rb:602:in `handle_request'
+puma (3.9.1) lib/puma/server.rb:435:in `process_client'
+puma (3.9.1) lib/puma/server.rb:299:in `block in run'
+puma (3.9.1) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+Started GET "/users/auth/google/callback?state=d12daab97200b9c23e36a805fd2b98b5017dc67272d34ee4&code=4/LRjiaRZPVgkPBS_OJ4Stan46IOK23xQlhQneBIyvoIA" for 127.0.0.1 at 2017-06-26 17:55:26 +0900
+  
+AbstractController::ActionNotFound (The action 'google' could not be found for Devise::OmniauthCallbacksController):
+  
+actionpack (5.1.1) lib/abstract_controller/base.rb:119:in `process'
+actionview (5.1.1) lib/action_view/rendering.rb:30:in `process'
+actionpack (5.1.1) lib/action_controller/metal.rb:189:in `dispatch'
+actionpack (5.1.1) lib/action_controller/metal.rb:253:in `dispatch'
+actionpack (5.1.1) lib/action_dispatch/routing/route_set.rb:49:in `dispatch'
+actionpack (5.1.1) lib/action_dispatch/routing/route_set.rb:31:in `serve'
+actionpack (5.1.1) lib/action_dispatch/routing/mapper.rb:16:in `block in <class:Constraints>'
+actionpack (5.1.1) lib/action_dispatch/routing/mapper.rb:46:in `serve'
+actionpack (5.1.1) lib/action_dispatch/journey/router.rb:46:in `block in serve'
+actionpack (5.1.1) lib/action_dispatch/journey/router.rb:33:in `each'
+actionpack (5.1.1) lib/action_dispatch/journey/router.rb:33:in `serve'
+actionpack (5.1.1) lib/action_dispatch/routing/route_set.rb:832:in `call'
+omniauth (1.6.1) lib/omniauth/strategy.rb:407:in `call_app!'
+omniauth (1.6.1) lib/omniauth/strategy.rb:361:in `callback_phase'
+omniauth-oauth2 (1.4.0) lib/omniauth/strategies/oauth2.rb:75:in `callback_phase'
+omniauth (1.6.1) lib/omniauth/strategy.rb:230:in `callback_call'
+omniauth (1.6.1) lib/omniauth/strategy.rb:187:in `call!'
+omniauth (1.6.1) lib/omniauth/strategy.rb:167:in `call'
+warden (1.2.7) lib/warden/manager.rb:36:in `block in call'
+warden (1.2.7) lib/warden/manager.rb:35:in `catch'
+warden (1.2.7) lib/warden/manager.rb:35:in `call'
+rack (2.0.3) lib/rack/etag.rb:25:in `call'
+rack (2.0.3) lib/rack/conditional_get.rb:25:in `call'
+rack (2.0.3) lib/rack/head.rb:12:in `call'
+rack (2.0.3) lib/rack/session/abstract/id.rb:232:in `context'
+rack (2.0.3) lib/rack/session/abstract/id.rb:226:in `call'
+actionpack (5.1.1) lib/action_dispatch/middleware/cookies.rb:613:in `call'
+activerecord (5.1.1) lib/active_record/migration.rb:556:in `call'
+actionpack (5.1.1) lib/action_dispatch/middleware/callbacks.rb:26:in `block in call'
+activesupport (5.1.1) lib/active_support/callbacks.rb:97:in `run_callbacks'
+actionpack (5.1.1) lib/action_dispatch/middleware/callbacks.rb:24:in `call'
+actionpack (5.1.1) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.1) lib/action_dispatch/middleware/debug_exceptions.rb:59:in `call'
+web-console (3.5.1) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.5.1) lib/web_console/middleware.rb:28:in `block in call'
+web-console (3.5.1) lib/web_console/middleware.rb:18:in `catch'
+web-console (3.5.1) lib/web_console/middleware.rb:18:in `call'
+actionpack (5.1.1) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.1.1) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.1.1) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.1.1) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.1.1) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.1.1) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.1.1) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.0) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.1.1) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.1.1) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+rack (2.0.3) lib/rack/method_override.rb:22:in `call'
+rack (2.0.3) lib/rack/runtime.rb:22:in `call'
+activesupport (5.1.1) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+actionpack (5.1.1) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.1) lib/action_dispatch/middleware/static.rb:125:in `call'
+rack (2.0.3) lib/rack/sendfile.rb:111:in `call'
+railties (5.1.1) lib/rails/engine.rb:522:in `call'
+puma (3.9.1) lib/puma/configuration.rb:224:in `call'
+puma (3.9.1) lib/puma/server.rb:602:in `handle_request'
+puma (3.9.1) lib/puma/server.rb:435:in `process_client'
+puma (3.9.1) lib/puma/server.rb:299:in `block in run'
+puma (3.9.1) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+Started GET "/users/auth/google/callback?state=d12daab97200b9c23e36a805fd2b98b5017dc67272d34ee4&code=4/LRjiaRZPVgkPBS_OJ4Stan46IOK23xQlhQneBIyvoIA" for 127.0.0.1 at 2017-06-26 17:56:02 +0900
+Processing by Users::OmniauthCallbacksController#failure as HTML
+  Parameters: {"state"=>"d12daab97200b9c23e36a805fd2b98b5017dc67272d34ee4", "code"=>"4/LRjiaRZPVgkPBS_OJ4Stan46IOK23xQlhQneBIyvoIA"}
+Redirected to http://localhost:3000/users/sign_in
+Completed 302 Found in 7ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2017-06-26 17:56:02 +0900
+Processing by Users::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (1.5ms) [cache miss]
+  Rendered devise/sessions/new.html.erb within layouts/application (4.8ms)
+Completed 200 OK in 99ms (Views: 63.4ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/users/auth/google" for 127.0.0.1 at 2017-06-26 17:56:07 +0900
+Started GET "/users/auth/google" for 127.0.0.1 at 2017-06-26 17:56:07 +0900
+Started GET "/users/auth/google/callback?state=416497a9160af51e3b1c7c89676106f10b69275bf3e9d745&code=4/46mT_qHNvjVZ0D2pHuecyaWqS8EIhiPkqvF7vWuV-MY" for 127.0.0.1 at 2017-06-26 17:56:09 +0900
+  
+AbstractController::ActionNotFound (The action 'google' could not be found for Devise::OmniauthCallbacksController):
+  
+actionpack (5.1.1) lib/abstract_controller/base.rb:119:in `process'
+actionview (5.1.1) lib/action_view/rendering.rb:30:in `process'
+actionpack (5.1.1) lib/action_controller/metal.rb:189:in `dispatch'
+actionpack (5.1.1) lib/action_controller/metal.rb:253:in `dispatch'
+actionpack (5.1.1) lib/action_dispatch/routing/route_set.rb:49:in `dispatch'
+actionpack (5.1.1) lib/action_dispatch/routing/route_set.rb:31:in `serve'
+actionpack (5.1.1) lib/action_dispatch/routing/mapper.rb:16:in `block in <class:Constraints>'
+actionpack (5.1.1) lib/action_dispatch/routing/mapper.rb:46:in `serve'
+actionpack (5.1.1) lib/action_dispatch/journey/router.rb:46:in `block in serve'
+actionpack (5.1.1) lib/action_dispatch/journey/router.rb:33:in `each'
+actionpack (5.1.1) lib/action_dispatch/journey/router.rb:33:in `serve'
+actionpack (5.1.1) lib/action_dispatch/routing/route_set.rb:832:in `call'
+omniauth (1.6.1) lib/omniauth/strategy.rb:407:in `call_app!'
+omniauth (1.6.1) lib/omniauth/strategy.rb:361:in `callback_phase'
+omniauth-oauth2 (1.4.0) lib/omniauth/strategies/oauth2.rb:75:in `callback_phase'
+omniauth (1.6.1) lib/omniauth/strategy.rb:230:in `callback_call'
+omniauth (1.6.1) lib/omniauth/strategy.rb:187:in `call!'
+omniauth (1.6.1) lib/omniauth/strategy.rb:167:in `call'
+warden (1.2.7) lib/warden/manager.rb:36:in `block in call'
+warden (1.2.7) lib/warden/manager.rb:35:in `catch'
+warden (1.2.7) lib/warden/manager.rb:35:in `call'
+rack (2.0.3) lib/rack/etag.rb:25:in `call'
+rack (2.0.3) lib/rack/conditional_get.rb:25:in `call'
+rack (2.0.3) lib/rack/head.rb:12:in `call'
+rack (2.0.3) lib/rack/session/abstract/id.rb:232:in `context'
+rack (2.0.3) lib/rack/session/abstract/id.rb:226:in `call'
+actionpack (5.1.1) lib/action_dispatch/middleware/cookies.rb:613:in `call'
+activerecord (5.1.1) lib/active_record/migration.rb:556:in `call'
+actionpack (5.1.1) lib/action_dispatch/middleware/callbacks.rb:26:in `block in call'
+activesupport (5.1.1) lib/active_support/callbacks.rb:97:in `run_callbacks'
+actionpack (5.1.1) lib/action_dispatch/middleware/callbacks.rb:24:in `call'
+actionpack (5.1.1) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.1) lib/action_dispatch/middleware/debug_exceptions.rb:59:in `call'
+web-console (3.5.1) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.5.1) lib/web_console/middleware.rb:28:in `block in call'
+web-console (3.5.1) lib/web_console/middleware.rb:18:in `catch'
+web-console (3.5.1) lib/web_console/middleware.rb:18:in `call'
+actionpack (5.1.1) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.1.1) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.1.1) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.1.1) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.1.1) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.1.1) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.1.1) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.0) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.1.1) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.1.1) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+rack (2.0.3) lib/rack/method_override.rb:22:in `call'
+rack (2.0.3) lib/rack/runtime.rb:22:in `call'
+activesupport (5.1.1) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+actionpack (5.1.1) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.1) lib/action_dispatch/middleware/static.rb:125:in `call'
+rack (2.0.3) lib/rack/sendfile.rb:111:in `call'
+railties (5.1.1) lib/rails/engine.rb:522:in `call'
+puma (3.9.1) lib/puma/configuration.rb:224:in `call'
+puma (3.9.1) lib/puma/server.rb:602:in `handle_request'
+puma (3.9.1) lib/puma/server.rb:435:in `process_client'
+puma (3.9.1) lib/puma/server.rb:299:in `block in run'
+puma (3.9.1) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+Started GET "/users/auth/google/callback?state=416497a9160af51e3b1c7c89676106f10b69275bf3e9d745&code=4/46mT_qHNvjVZ0D2pHuecyaWqS8EIhiPkqvF7vWuV-MY" for 127.0.0.1 at 2017-06-26 17:56:13 +0900
+Processing by Users::OmniauthCallbacksController#failure as HTML
+  Parameters: {"state"=>"416497a9160af51e3b1c7c89676106f10b69275bf3e9d745", "code"=>"4/46mT_qHNvjVZ0D2pHuecyaWqS8EIhiPkqvF7vWuV-MY"}
+Redirected to http://localhost:3000/users/sign_in
+Completed 302 Found in 11ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2017-06-26 17:56:13 +0900
+Processing by Users::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (1.3ms) [cache miss]
+  Rendered devise/sessions/new.html.erb within layouts/application (9.1ms)
+Completed 200 OK in 124ms (Views: 121.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/auth/google" for 127.0.0.1 at 2017-06-26 17:57:06 +0900
+Started GET "/users/auth/google" for 127.0.0.1 at 2017-06-26 17:57:06 +0900
+Started GET "/users/auth/google/callback?state=46144e1ab5e378ff2fb8eff3870045a4f264ba77a870ed90&code=4/N8Ynh5O-hkoOUTxtcgC9TpCLIJC8aVqs4hwtA432oC4" for 127.0.0.1 at 2017-06-26 17:57:08 +0900
+  
+AbstractController::ActionNotFound (The action 'google' could not be found for Devise::OmniauthCallbacksController):
+  
+actionpack (5.1.1) lib/abstract_controller/base.rb:119:in `process'
+actionview (5.1.1) lib/action_view/rendering.rb:30:in `process'
+actionpack (5.1.1) lib/action_controller/metal.rb:189:in `dispatch'
+actionpack (5.1.1) lib/action_controller/metal.rb:253:in `dispatch'
+actionpack (5.1.1) lib/action_dispatch/routing/route_set.rb:49:in `dispatch'
+actionpack (5.1.1) lib/action_dispatch/routing/route_set.rb:31:in `serve'
+actionpack (5.1.1) lib/action_dispatch/routing/mapper.rb:16:in `block in <class:Constraints>'
+actionpack (5.1.1) lib/action_dispatch/routing/mapper.rb:46:in `serve'
+actionpack (5.1.1) lib/action_dispatch/journey/router.rb:46:in `block in serve'
+actionpack (5.1.1) lib/action_dispatch/journey/router.rb:33:in `each'
+actionpack (5.1.1) lib/action_dispatch/journey/router.rb:33:in `serve'
+actionpack (5.1.1) lib/action_dispatch/routing/route_set.rb:832:in `call'
+omniauth (1.6.1) lib/omniauth/strategy.rb:407:in `call_app!'
+omniauth (1.6.1) lib/omniauth/strategy.rb:361:in `callback_phase'
+omniauth-oauth2 (1.4.0) lib/omniauth/strategies/oauth2.rb:75:in `callback_phase'
+omniauth (1.6.1) lib/omniauth/strategy.rb:230:in `callback_call'
+omniauth (1.6.1) lib/omniauth/strategy.rb:187:in `call!'
+omniauth (1.6.1) lib/omniauth/strategy.rb:167:in `call'
+warden (1.2.7) lib/warden/manager.rb:36:in `block in call'
+warden (1.2.7) lib/warden/manager.rb:35:in `catch'
+warden (1.2.7) lib/warden/manager.rb:35:in `call'
+rack (2.0.3) lib/rack/etag.rb:25:in `call'
+rack (2.0.3) lib/rack/conditional_get.rb:25:in `call'
+rack (2.0.3) lib/rack/head.rb:12:in `call'
+rack (2.0.3) lib/rack/session/abstract/id.rb:232:in `context'
+rack (2.0.3) lib/rack/session/abstract/id.rb:226:in `call'
+actionpack (5.1.1) lib/action_dispatch/middleware/cookies.rb:613:in `call'
+activerecord (5.1.1) lib/active_record/migration.rb:556:in `call'
+actionpack (5.1.1) lib/action_dispatch/middleware/callbacks.rb:26:in `block in call'
+activesupport (5.1.1) lib/active_support/callbacks.rb:97:in `run_callbacks'
+actionpack (5.1.1) lib/action_dispatch/middleware/callbacks.rb:24:in `call'
+actionpack (5.1.1) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.1) lib/action_dispatch/middleware/debug_exceptions.rb:59:in `call'
+web-console (3.5.1) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.5.1) lib/web_console/middleware.rb:28:in `block in call'
+web-console (3.5.1) lib/web_console/middleware.rb:18:in `catch'
+web-console (3.5.1) lib/web_console/middleware.rb:18:in `call'
+actionpack (5.1.1) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.1.1) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.1.1) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.1.1) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.1.1) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.1.1) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.1.1) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.0) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.1.1) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.1.1) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+rack (2.0.3) lib/rack/method_override.rb:22:in `call'
+rack (2.0.3) lib/rack/runtime.rb:22:in `call'
+activesupport (5.1.1) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+actionpack (5.1.1) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.1) lib/action_dispatch/middleware/static.rb:125:in `call'
+rack (2.0.3) lib/rack/sendfile.rb:111:in `call'
+railties (5.1.1) lib/rails/engine.rb:522:in `call'
+puma (3.9.1) lib/puma/configuration.rb:224:in `call'
+puma (3.9.1) lib/puma/server.rb:602:in `handle_request'
+puma (3.9.1) lib/puma/server.rb:435:in `process_client'
+puma (3.9.1) lib/puma/server.rb:299:in `block in run'
+puma (3.9.1) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+Started GET "/users/auth/google/callback?state=46144e1ab5e378ff2fb8eff3870045a4f264ba77a870ed90&code=4/s1Xtt7HmWQzXeH3xD2jk9Wy8agmdXL16x0a4RpCi7qI" for 127.0.0.1 at 2017-06-26 18:00:35 +0900
+  
+ArgumentError (Invalid route name, already in use: 'new_user_session' 
+You may have defined two routes with the same name using the `:as` option, or you may be overriding a route already defined by a resource with the same naming. For the latter, you can restrict the routes created with `resources` as explained here: 
+http://guides.rubyonrails.org/routing.html#restricting-the-routes-created):
+  
+config/routes.rb:9:in `block in <top (required)>'
+config/routes.rb:1:in `<top (required)>'
+Started GET "/users/auth/google/callback?state=46144e1ab5e378ff2fb8eff3870045a4f264ba77a870ed90&code=4/s1Xtt7HmWQzXeH3xD2jk9Wy8agmdXL16x0a4RpCi7qI" for 127.0.0.1 at 2017-06-26 18:00:51 +0900
+  
+ArgumentError (Invalid route name, already in use: 'new_user_session' 
+You may have defined two routes with the same name using the `:as` option, or you may be overriding a route already defined by a resource with the same naming. For the latter, you can restrict the routes created with `resources` as explained here: 
+http://guides.rubyonrails.org/routing.html#restricting-the-routes-created):
+  
+config/routes.rb:9:in `block in <top (required)>'
+config/routes.rb:1:in `<top (required)>'
+Started GET "/users/auth/google/callback?state=46144e1ab5e378ff2fb8eff3870045a4f264ba77a870ed90&code=4/L47XfhYORuoniJ8n7XdwR7e3EDQ2M1ph3V0gFzA5d5c" for 127.0.0.1 at 2017-06-26 18:00:55 +0900
+  
+AbstractController::ActionNotFound (The action 'google' could not be found for Devise::OmniauthCallbacksController):
+  
+actionpack (5.1.1) lib/abstract_controller/base.rb:119:in `process'
+actionview (5.1.1) lib/action_view/rendering.rb:30:in `process'
+actionpack (5.1.1) lib/action_controller/metal.rb:189:in `dispatch'
+actionpack (5.1.1) lib/action_controller/metal.rb:253:in `dispatch'
+actionpack (5.1.1) lib/action_dispatch/routing/route_set.rb:49:in `dispatch'
+actionpack (5.1.1) lib/action_dispatch/routing/route_set.rb:31:in `serve'
+actionpack (5.1.1) lib/action_dispatch/routing/mapper.rb:16:in `block in <class:Constraints>'
+actionpack (5.1.1) lib/action_dispatch/routing/mapper.rb:46:in `serve'
+actionpack (5.1.1) lib/action_dispatch/journey/router.rb:46:in `block in serve'
+actionpack (5.1.1) lib/action_dispatch/journey/router.rb:33:in `each'
+actionpack (5.1.1) lib/action_dispatch/journey/router.rb:33:in `serve'
+actionpack (5.1.1) lib/action_dispatch/routing/route_set.rb:832:in `call'
+omniauth (1.6.1) lib/omniauth/strategy.rb:407:in `call_app!'
+omniauth (1.6.1) lib/omniauth/strategy.rb:361:in `callback_phase'
+omniauth-oauth2 (1.4.0) lib/omniauth/strategies/oauth2.rb:75:in `callback_phase'
+omniauth (1.6.1) lib/omniauth/strategy.rb:230:in `callback_call'
+omniauth (1.6.1) lib/omniauth/strategy.rb:187:in `call!'
+omniauth (1.6.1) lib/omniauth/strategy.rb:167:in `call'
+warden (1.2.7) lib/warden/manager.rb:36:in `block in call'
+warden (1.2.7) lib/warden/manager.rb:35:in `catch'
+warden (1.2.7) lib/warden/manager.rb:35:in `call'
+rack (2.0.3) lib/rack/etag.rb:25:in `call'
+rack (2.0.3) lib/rack/conditional_get.rb:25:in `call'
+rack (2.0.3) lib/rack/head.rb:12:in `call'
+rack (2.0.3) lib/rack/session/abstract/id.rb:232:in `context'
+rack (2.0.3) lib/rack/session/abstract/id.rb:226:in `call'
+actionpack (5.1.1) lib/action_dispatch/middleware/cookies.rb:613:in `call'
+activerecord (5.1.1) lib/active_record/migration.rb:556:in `call'
+actionpack (5.1.1) lib/action_dispatch/middleware/callbacks.rb:26:in `block in call'
+activesupport (5.1.1) lib/active_support/callbacks.rb:97:in `run_callbacks'
+actionpack (5.1.1) lib/action_dispatch/middleware/callbacks.rb:24:in `call'
+actionpack (5.1.1) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.1) lib/action_dispatch/middleware/debug_exceptions.rb:59:in `call'
+web-console (3.5.1) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.5.1) lib/web_console/middleware.rb:28:in `block in call'
+web-console (3.5.1) lib/web_console/middleware.rb:18:in `catch'
+web-console (3.5.1) lib/web_console/middleware.rb:18:in `call'
+actionpack (5.1.1) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.1.1) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.1.1) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.1.1) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.1.1) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.1.1) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.1.1) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.0) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.1.1) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.1.1) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+rack (2.0.3) lib/rack/method_override.rb:22:in `call'
+rack (2.0.3) lib/rack/runtime.rb:22:in `call'
+activesupport (5.1.1) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+actionpack (5.1.1) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.1) lib/action_dispatch/middleware/static.rb:125:in `call'
+rack (2.0.3) lib/rack/sendfile.rb:111:in `call'
+railties (5.1.1) lib/rails/engine.rb:522:in `call'
+puma (3.9.1) lib/puma/configuration.rb:224:in `call'
+puma (3.9.1) lib/puma/server.rb:602:in `handle_request'
+puma (3.9.1) lib/puma/server.rb:435:in `process_client'
+puma (3.9.1) lib/puma/server.rb:299:in `block in run'
+puma (3.9.1) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+Started GET "/users/auth/google/callback?state=46144e1ab5e378ff2fb8eff3870045a4f264ba77a870ed90&code=4/L47XfhYORuoniJ8n7XdwR7e3EDQ2M1ph3V0gFzA5d5c" for 127.0.0.1 at 2017-06-26 18:00:58 +0900
+  
+NameError (wrong constant name Products#indexController):
+  
+activesupport (5.1.1) lib/active_support/inflector/methods.rb:269:in `const_get'
+activesupport (5.1.1) lib/active_support/inflector/methods.rb:269:in `block in constantize'
+activesupport (5.1.1) lib/active_support/inflector/methods.rb:267:in `each'
+activesupport (5.1.1) lib/active_support/inflector/methods.rb:267:in `inject'
+activesupport (5.1.1) lib/active_support/inflector/methods.rb:267:in `constantize'
+devise (4.3.0) lib/devise/omniauth.rb:19:in `block in <top (required)>'
+omniauth (1.6.1) lib/omniauth/strategy.rb:478:in `fail!'
+omniauth-oauth2 (1.4.0) lib/omniauth/strategies/oauth2.rb:78:in `rescue in callback_phase'
+omniauth-oauth2 (1.4.0) lib/omniauth/strategies/oauth2.rb:67:in `callback_phase'
+omniauth (1.6.1) lib/omniauth/strategy.rb:230:in `callback_call'
+omniauth (1.6.1) lib/omniauth/strategy.rb:187:in `call!'
+omniauth (1.6.1) lib/omniauth/strategy.rb:167:in `call'
+warden (1.2.7) lib/warden/manager.rb:36:in `block in call'
+warden (1.2.7) lib/warden/manager.rb:35:in `catch'
+warden (1.2.7) lib/warden/manager.rb:35:in `call'
+rack (2.0.3) lib/rack/etag.rb:25:in `call'
+rack (2.0.3) lib/rack/conditional_get.rb:25:in `call'
+rack (2.0.3) lib/rack/head.rb:12:in `call'
+rack (2.0.3) lib/rack/session/abstract/id.rb:232:in `context'
+rack (2.0.3) lib/rack/session/abstract/id.rb:226:in `call'
+actionpack (5.1.1) lib/action_dispatch/middleware/cookies.rb:613:in `call'
+activerecord (5.1.1) lib/active_record/migration.rb:556:in `call'
+actionpack (5.1.1) lib/action_dispatch/middleware/callbacks.rb:26:in `block in call'
+activesupport (5.1.1) lib/active_support/callbacks.rb:97:in `run_callbacks'
+actionpack (5.1.1) lib/action_dispatch/middleware/callbacks.rb:24:in `call'
+actionpack (5.1.1) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.1) lib/action_dispatch/middleware/debug_exceptions.rb:59:in `call'
+web-console (3.5.1) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.5.1) lib/web_console/middleware.rb:28:in `block in call'
+web-console (3.5.1) lib/web_console/middleware.rb:18:in `catch'
+web-console (3.5.1) lib/web_console/middleware.rb:18:in `call'
+actionpack (5.1.1) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.1.1) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.1.1) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.1.1) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.1.1) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.1.1) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.1.1) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.0) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.1.1) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.1.1) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+rack (2.0.3) lib/rack/method_override.rb:22:in `call'
+rack (2.0.3) lib/rack/runtime.rb:22:in `call'
+activesupport (5.1.1) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+actionpack (5.1.1) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.1) lib/action_dispatch/middleware/static.rb:125:in `call'
+rack (2.0.3) lib/rack/sendfile.rb:111:in `call'
+railties (5.1.1) lib/rails/engine.rb:522:in `call'
+puma (3.9.1) lib/puma/configuration.rb:224:in `call'
+puma (3.9.1) lib/puma/server.rb:602:in `handle_request'
+puma (3.9.1) lib/puma/server.rb:435:in `process_client'
+puma (3.9.1) lib/puma/server.rb:299:in `block in run'
+puma (3.9.1) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+Started GET "/users/auth/google/callback?state=46144e1ab5e378ff2fb8eff3870045a4f264ba77a870ed90&code=4/L47XfhYORuoniJ8n7XdwR7e3EDQ2M1ph3V0gFzA5d5c" for 127.0.0.1 at 2017-06-26 18:01:00 +0900
+  
+NameError (wrong constant name Products#indexController):
+  
+activesupport (5.1.1) lib/active_support/inflector/methods.rb:269:in `const_get'
+activesupport (5.1.1) lib/active_support/inflector/methods.rb:269:in `block in constantize'
+activesupport (5.1.1) lib/active_support/inflector/methods.rb:267:in `each'
+activesupport (5.1.1) lib/active_support/inflector/methods.rb:267:in `inject'
+activesupport (5.1.1) lib/active_support/inflector/methods.rb:267:in `constantize'
+devise (4.3.0) lib/devise/omniauth.rb:19:in `block in <top (required)>'
+omniauth (1.6.1) lib/omniauth/strategy.rb:478:in `fail!'
+omniauth-oauth2 (1.4.0) lib/omniauth/strategies/oauth2.rb:78:in `rescue in callback_phase'
+omniauth-oauth2 (1.4.0) lib/omniauth/strategies/oauth2.rb:67:in `callback_phase'
+omniauth (1.6.1) lib/omniauth/strategy.rb:230:in `callback_call'
+omniauth (1.6.1) lib/omniauth/strategy.rb:187:in `call!'
+omniauth (1.6.1) lib/omniauth/strategy.rb:167:in `call'
+warden (1.2.7) lib/warden/manager.rb:36:in `block in call'
+warden (1.2.7) lib/warden/manager.rb:35:in `catch'
+warden (1.2.7) lib/warden/manager.rb:35:in `call'
+rack (2.0.3) lib/rack/etag.rb:25:in `call'
+rack (2.0.3) lib/rack/conditional_get.rb:25:in `call'
+rack (2.0.3) lib/rack/head.rb:12:in `call'
+rack (2.0.3) lib/rack/session/abstract/id.rb:232:in `context'
+rack (2.0.3) lib/rack/session/abstract/id.rb:226:in `call'
+actionpack (5.1.1) lib/action_dispatch/middleware/cookies.rb:613:in `call'
+activerecord (5.1.1) lib/active_record/migration.rb:556:in `call'
+actionpack (5.1.1) lib/action_dispatch/middleware/callbacks.rb:26:in `block in call'
+activesupport (5.1.1) lib/active_support/callbacks.rb:97:in `run_callbacks'
+actionpack (5.1.1) lib/action_dispatch/middleware/callbacks.rb:24:in `call'
+actionpack (5.1.1) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.1) lib/action_dispatch/middleware/debug_exceptions.rb:59:in `call'
+web-console (3.5.1) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.5.1) lib/web_console/middleware.rb:28:in `block in call'
+web-console (3.5.1) lib/web_console/middleware.rb:18:in `catch'
+web-console (3.5.1) lib/web_console/middleware.rb:18:in `call'
+actionpack (5.1.1) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.1.1) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.1.1) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.1.1) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.1.1) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.1.1) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.1.1) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.0) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.1.1) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.1.1) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+rack (2.0.3) lib/rack/method_override.rb:22:in `call'
+rack (2.0.3) lib/rack/runtime.rb:22:in `call'
+activesupport (5.1.1) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+actionpack (5.1.1) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.1) lib/action_dispatch/middleware/static.rb:125:in `call'
+rack (2.0.3) lib/rack/sendfile.rb:111:in `call'
+railties (5.1.1) lib/rails/engine.rb:522:in `call'
+puma (3.9.1) lib/puma/configuration.rb:224:in `call'
+puma (3.9.1) lib/puma/server.rb:602:in `handle_request'
+puma (3.9.1) lib/puma/server.rb:435:in `process_client'
+puma (3.9.1) lib/puma/server.rb:299:in `block in run'
+puma (3.9.1) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+Started GET "/users/auth/google/callback?state=46144e1ab5e378ff2fb8eff3870045a4f264ba77a870ed90&code=4/L47XfhYORuoniJ8n7XdwR7e3EDQ2M1ph3V0gFzA5d5c" for 127.0.0.1 at 2017-06-26 18:01:01 +0900
+  
+NameError (wrong constant name Products#indexController):
+  
+activesupport (5.1.1) lib/active_support/inflector/methods.rb:269:in `const_get'
+activesupport (5.1.1) lib/active_support/inflector/methods.rb:269:in `block in constantize'
+activesupport (5.1.1) lib/active_support/inflector/methods.rb:267:in `each'
+activesupport (5.1.1) lib/active_support/inflector/methods.rb:267:in `inject'
+activesupport (5.1.1) lib/active_support/inflector/methods.rb:267:in `constantize'
+devise (4.3.0) lib/devise/omniauth.rb:19:in `block in <top (required)>'
+omniauth (1.6.1) lib/omniauth/strategy.rb:478:in `fail!'
+omniauth-oauth2 (1.4.0) lib/omniauth/strategies/oauth2.rb:78:in `rescue in callback_phase'
+omniauth-oauth2 (1.4.0) lib/omniauth/strategies/oauth2.rb:67:in `callback_phase'
+omniauth (1.6.1) lib/omniauth/strategy.rb:230:in `callback_call'
+omniauth (1.6.1) lib/omniauth/strategy.rb:187:in `call!'
+omniauth (1.6.1) lib/omniauth/strategy.rb:167:in `call'
+warden (1.2.7) lib/warden/manager.rb:36:in `block in call'
+warden (1.2.7) lib/warden/manager.rb:35:in `catch'
+warden (1.2.7) lib/warden/manager.rb:35:in `call'
+rack (2.0.3) lib/rack/etag.rb:25:in `call'
+rack (2.0.3) lib/rack/conditional_get.rb:25:in `call'
+rack (2.0.3) lib/rack/head.rb:12:in `call'
+rack (2.0.3) lib/rack/session/abstract/id.rb:232:in `context'
+rack (2.0.3) lib/rack/session/abstract/id.rb:226:in `call'
+actionpack (5.1.1) lib/action_dispatch/middleware/cookies.rb:613:in `call'
+activerecord (5.1.1) lib/active_record/migration.rb:556:in `call'
+actionpack (5.1.1) lib/action_dispatch/middleware/callbacks.rb:26:in `block in call'
+activesupport (5.1.1) lib/active_support/callbacks.rb:97:in `run_callbacks'
+actionpack (5.1.1) lib/action_dispatch/middleware/callbacks.rb:24:in `call'
+actionpack (5.1.1) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.1) lib/action_dispatch/middleware/debug_exceptions.rb:59:in `call'
+web-console (3.5.1) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.5.1) lib/web_console/middleware.rb:28:in `block in call'
+web-console (3.5.1) lib/web_console/middleware.rb:18:in `catch'
+web-console (3.5.1) lib/web_console/middleware.rb:18:in `call'
+actionpack (5.1.1) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.1.1) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.1.1) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.1.1) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.1.1) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.1.1) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.1.1) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.0) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.1.1) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.1.1) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+rack (2.0.3) lib/rack/method_override.rb:22:in `call'
+rack (2.0.3) lib/rack/runtime.rb:22:in `call'
+activesupport (5.1.1) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+actionpack (5.1.1) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.1) lib/action_dispatch/middleware/static.rb:125:in `call'
+rack (2.0.3) lib/rack/sendfile.rb:111:in `call'
+railties (5.1.1) lib/rails/engine.rb:522:in `call'
+puma (3.9.1) lib/puma/configuration.rb:224:in `call'
+puma (3.9.1) lib/puma/server.rb:602:in `handle_request'
+puma (3.9.1) lib/puma/server.rb:435:in `process_client'
+puma (3.9.1) lib/puma/server.rb:299:in `block in run'
+puma (3.9.1) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+Started GET "/users/auth/google/callback?state=46144e1ab5e378ff2fb8eff3870045a4f264ba77a870ed90&code=4/L47XfhYORuoniJ8n7XdwR7e3EDQ2M1ph3V0gFzA5d5c" for 127.0.0.1 at 2017-06-26 18:01:03 +0900
+  
+NameError (wrong constant name Products#indexController):
+  
+activesupport (5.1.1) lib/active_support/inflector/methods.rb:269:in `const_get'
+activesupport (5.1.1) lib/active_support/inflector/methods.rb:269:in `block in constantize'
+activesupport (5.1.1) lib/active_support/inflector/methods.rb:267:in `each'
+activesupport (5.1.1) lib/active_support/inflector/methods.rb:267:in `inject'
+activesupport (5.1.1) lib/active_support/inflector/methods.rb:267:in `constantize'
+devise (4.3.0) lib/devise/omniauth.rb:19:in `block in <top (required)>'
+omniauth (1.6.1) lib/omniauth/strategy.rb:478:in `fail!'
+omniauth-oauth2 (1.4.0) lib/omniauth/strategies/oauth2.rb:78:in `rescue in callback_phase'
+omniauth-oauth2 (1.4.0) lib/omniauth/strategies/oauth2.rb:67:in `callback_phase'
+omniauth (1.6.1) lib/omniauth/strategy.rb:230:in `callback_call'
+omniauth (1.6.1) lib/omniauth/strategy.rb:187:in `call!'
+omniauth (1.6.1) lib/omniauth/strategy.rb:167:in `call'
+warden (1.2.7) lib/warden/manager.rb:36:in `block in call'
+warden (1.2.7) lib/warden/manager.rb:35:in `catch'
+warden (1.2.7) lib/warden/manager.rb:35:in `call'
+rack (2.0.3) lib/rack/etag.rb:25:in `call'
+rack (2.0.3) lib/rack/conditional_get.rb:25:in `call'
+rack (2.0.3) lib/rack/head.rb:12:in `call'
+rack (2.0.3) lib/rack/session/abstract/id.rb:232:in `context'
+rack (2.0.3) lib/rack/session/abstract/id.rb:226:in `call'
+actionpack (5.1.1) lib/action_dispatch/middleware/cookies.rb:613:in `call'
+activerecord (5.1.1) lib/active_record/migration.rb:556:in `call'
+actionpack (5.1.1) lib/action_dispatch/middleware/callbacks.rb:26:in `block in call'
+activesupport (5.1.1) lib/active_support/callbacks.rb:97:in `run_callbacks'
+actionpack (5.1.1) lib/action_dispatch/middleware/callbacks.rb:24:in `call'
+actionpack (5.1.1) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.1) lib/action_dispatch/middleware/debug_exceptions.rb:59:in `call'
+web-console (3.5.1) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.5.1) lib/web_console/middleware.rb:28:in `block in call'
+web-console (3.5.1) lib/web_console/middleware.rb:18:in `catch'
+web-console (3.5.1) lib/web_console/middleware.rb:18:in `call'
+actionpack (5.1.1) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.1.1) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.1.1) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.1.1) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.1.1) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.1.1) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.1.1) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.0) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.1.1) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.1.1) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+rack (2.0.3) lib/rack/method_override.rb:22:in `call'
+rack (2.0.3) lib/rack/runtime.rb:22:in `call'
+activesupport (5.1.1) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+actionpack (5.1.1) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.1) lib/action_dispatch/middleware/static.rb:125:in `call'
+rack (2.0.3) lib/rack/sendfile.rb:111:in `call'
+railties (5.1.1) lib/rails/engine.rb:522:in `call'
+puma (3.9.1) lib/puma/configuration.rb:224:in `call'
+puma (3.9.1) lib/puma/server.rb:602:in `handle_request'
+puma (3.9.1) lib/puma/server.rb:435:in `process_client'
+puma (3.9.1) lib/puma/server.rb:299:in `block in run'
+puma (3.9.1) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+Started GET "/" for 127.0.0.1 at 2017-06-26 18:01:06 +0900
+Processing by ProductsController#index as HTML
+Completed 401 Unauthorized in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2017-06-26 18:01:06 +0900
+Processing by Users::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (1.3ms) [cache miss]
+  Rendered devise/sessions/new.html.erb within layouts/application (4.1ms)
+Completed 200 OK in 91ms (Views: 61.8ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/users/auth/google" for 127.0.0.1 at 2017-06-26 18:01:08 +0900
+Started GET "/users/auth/google" for 127.0.0.1 at 2017-06-26 18:01:09 +0900
+Started GET "/users/auth/google/callback?state=05af4aa1aad4ad0378a4d4f609181254276e829457a40408&code=4/SsSxVs7HCqUBGCEuL0ipXwLA3a_Z-yE7XXdkvmaT1ro" for 127.0.0.1 at 2017-06-26 18:01:10 +0900
+  
+AbstractController::ActionNotFound (The action 'google' could not be found for Devise::OmniauthCallbacksController):
+  
+actionpack (5.1.1) lib/abstract_controller/base.rb:119:in `process'
+actionview (5.1.1) lib/action_view/rendering.rb:30:in `process'
+actionpack (5.1.1) lib/action_controller/metal.rb:189:in `dispatch'
+actionpack (5.1.1) lib/action_controller/metal.rb:253:in `dispatch'
+actionpack (5.1.1) lib/action_dispatch/routing/route_set.rb:49:in `dispatch'
+actionpack (5.1.1) lib/action_dispatch/routing/route_set.rb:31:in `serve'
+actionpack (5.1.1) lib/action_dispatch/routing/mapper.rb:16:in `block in <class:Constraints>'
+actionpack (5.1.1) lib/action_dispatch/routing/mapper.rb:46:in `serve'
+actionpack (5.1.1) lib/action_dispatch/journey/router.rb:46:in `block in serve'
+actionpack (5.1.1) lib/action_dispatch/journey/router.rb:33:in `each'
+actionpack (5.1.1) lib/action_dispatch/journey/router.rb:33:in `serve'
+actionpack (5.1.1) lib/action_dispatch/routing/route_set.rb:832:in `call'
+omniauth (1.6.1) lib/omniauth/strategy.rb:407:in `call_app!'
+omniauth (1.6.1) lib/omniauth/strategy.rb:361:in `callback_phase'
+omniauth-oauth2 (1.4.0) lib/omniauth/strategies/oauth2.rb:75:in `callback_phase'
+omniauth (1.6.1) lib/omniauth/strategy.rb:230:in `callback_call'
+omniauth (1.6.1) lib/omniauth/strategy.rb:187:in `call!'
+omniauth (1.6.1) lib/omniauth/strategy.rb:167:in `call'
+warden (1.2.7) lib/warden/manager.rb:36:in `block in call'
+warden (1.2.7) lib/warden/manager.rb:35:in `catch'
+warden (1.2.7) lib/warden/manager.rb:35:in `call'
+rack (2.0.3) lib/rack/etag.rb:25:in `call'
+rack (2.0.3) lib/rack/conditional_get.rb:25:in `call'
+rack (2.0.3) lib/rack/head.rb:12:in `call'
+rack (2.0.3) lib/rack/session/abstract/id.rb:232:in `context'
+rack (2.0.3) lib/rack/session/abstract/id.rb:226:in `call'
+actionpack (5.1.1) lib/action_dispatch/middleware/cookies.rb:613:in `call'
+activerecord (5.1.1) lib/active_record/migration.rb:556:in `call'
+actionpack (5.1.1) lib/action_dispatch/middleware/callbacks.rb:26:in `block in call'
+activesupport (5.1.1) lib/active_support/callbacks.rb:97:in `run_callbacks'
+actionpack (5.1.1) lib/action_dispatch/middleware/callbacks.rb:24:in `call'
+actionpack (5.1.1) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.1) lib/action_dispatch/middleware/debug_exceptions.rb:59:in `call'
+web-console (3.5.1) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.5.1) lib/web_console/middleware.rb:28:in `block in call'
+web-console (3.5.1) lib/web_console/middleware.rb:18:in `catch'
+web-console (3.5.1) lib/web_console/middleware.rb:18:in `call'
+actionpack (5.1.1) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.1.1) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.1.1) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.1.1) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.1.1) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.1.1) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.1.1) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.0) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.1.1) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.1.1) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+rack (2.0.3) lib/rack/method_override.rb:22:in `call'
+rack (2.0.3) lib/rack/runtime.rb:22:in `call'
+activesupport (5.1.1) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+actionpack (5.1.1) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.1) lib/action_dispatch/middleware/static.rb:125:in `call'
+rack (2.0.3) lib/rack/sendfile.rb:111:in `call'
+railties (5.1.1) lib/rails/engine.rb:522:in `call'
+puma (3.9.1) lib/puma/configuration.rb:224:in `call'
+puma (3.9.1) lib/puma/server.rb:602:in `handle_request'
+puma (3.9.1) lib/puma/server.rb:435:in `process_client'
+puma (3.9.1) lib/puma/server.rb:299:in `block in run'
+puma (3.9.1) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+Started GET "/users/auth/google/callback?state=05af4aa1aad4ad0378a4d4f609181254276e829457a40408&code=4/SsSxVs7HCqUBGCEuL0ipXwLA3a_Z-yE7XXdkvmaT1ro" for 127.0.0.1 at 2017-06-26 18:03:55 +0900
+  
+ArgumentError (Invalid route name, already in use: 'new_user_session' 
+You may have defined two routes with the same name using the `:as` option, or you may be overriding a route already defined by a resource with the same naming. For the latter, you can restrict the routes created with `resources` as explained here: 
+http://guides.rubyonrails.org/routing.html#restricting-the-routes-created):
+  
+config/routes.rb:9:in `block in <top (required)>'
+config/routes.rb:1:in `<top (required)>'
+Started GET "/users/auth/google/callback?state=05af4aa1aad4ad0378a4d4f609181254276e829457a40408&code=4/SsSxVs7HCqUBGCEuL0ipXwLA3a_Z-yE7XXdkvmaT1ro" for 127.0.0.1 at 2017-06-26 18:03:56 +0900
+Processing by Users::OmniauthCallbacksController#failure as HTML
+  Parameters: {"state"=>"05af4aa1aad4ad0378a4d4f609181254276e829457a40408", "code"=>"4/SsSxVs7HCqUBGCEuL0ipXwLA3a_Z-yE7XXdkvmaT1ro"}
+Redirected to http://localhost:3000/users/sign_in
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2017-06-26 18:03:56 +0900
+Processing by Users::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (1.1ms) [cache miss]
+  Rendered devise/sessions/new.html.erb within layouts/application (3.9ms)
+Completed 200 OK in 83ms (Views: 52.8ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2017-06-26 18:07:49 +0900
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/sessions/new.html.erb within layouts/application (619.8ms)
+Completed 500 Internal Server Error in 683ms (ActiveRecord: 0.5ms)
+
+
+  
+ActionView::Template::Error (undefined method `user_omniauth_authorize_path' for #<#<Class:0x83b231d4>:0x83b1ebac>
+Did you mean?  user_google_omniauth_authorize_path):
+    17:       <%= f.label :remember_me %>
+    18:     </div>
+    19:   <% end -%>
+    20:     <%= link_to 'Signin with Google', user_omniauth_authorize_path(:google) %>
+    21:   
+    22:   <div class="actions">
+    23:     <%= f.submit "Log in" %>
+  
+app/views/devise/sessions/new.html.erb:20:in `block in _app_views_devise_sessions_new_html_erb__620054412__1042810928'
+app/views/devise/sessions/new.html.erb:3:in `_app_views_devise_sessions_new_html_erb__620054412__1042810928'
+Started GET "/users/auth/google/callback?state=05af4aa1aad4ad0378a4d4f609181254276e829457a40408&code=4/Gb2jOCmDAhSBhp9WXWCVHdnrGpMLAZjFYs-ujC-83SA" for 127.0.0.1 at 2017-06-26 18:07:54 +0900
+Processing by Users::OmniauthCallbacksController#failure as HTML
+  Parameters: {"state"=>"05af4aa1aad4ad0378a4d4f609181254276e829457a40408", "code"=>"4/Gb2jOCmDAhSBhp9WXWCVHdnrGpMLAZjFYs-ujC-83SA"}
+Redirected to http://localhost:3000/users/sign_in
+Completed 302 Found in 2ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2017-06-26 18:07:54 +0900
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/sessions/new.html.erb within layouts/application (385.4ms)
+Completed 500 Internal Server Error in 394ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionView::Template::Error (undefined method `user_omniauth_authorize_path' for #<#<Class:0x83b231d4>:0x83b6a32c>
+Did you mean?  user_google_omniauth_authorize_path):
+    17:       <%= f.label :remember_me %>
+    18:     </div>
+    19:   <% end -%>
+    20:     <%= link_to 'Signin with Google', user_omniauth_authorize_path(:google) %>
+    21:   
+    22:   <div class="actions">
+    23:     <%= f.submit "Log in" %>
+  
+app/views/devise/sessions/new.html.erb:20:in `block in _app_views_devise_sessions_new_html_erb__620054412__1042592918'
+app/views/devise/sessions/new.html.erb:3:in `_app_views_devise_sessions_new_html_erb__620054412__1042592918'
+Started GET "/users/sign_in" for 127.0.0.1 at 2017-06-26 18:08:09 +0900
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (4.7ms) [cache miss]
+  Rendered devise/sessions/new.html.erb within layouts/application (12.1ms)
+Completed 200 OK in 462ms (Views: 460.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/auth/google" for 127.0.0.1 at 2017-06-26 18:08:13 +0900
+Started GET "/users/auth/google" for 127.0.0.1 at 2017-06-26 18:08:13 +0900
+Started GET "/users/auth/google/callback?state=b553c540e64a747aea51e3274d578715774d4114e4f2ee26&code=4/Qho6XjxwrgzGQf9mjvFsXj8QuRmJQsHeBstZ-9Ti81k" for 127.0.0.1 at 2017-06-26 18:08:15 +0900
+Processing by Users::OmniauthCallbacksController#google as HTML
+  Parameters: {"state"=>"b553c540e64a747aea51e3274d578715774d4114e4f2ee26", "code"=>"4/Qho6XjxwrgzGQf9mjvFsXj8QuRmJQsHeBstZ-9Ti81k"}
+Completed 500 Internal Server Error in 49ms (ActiveRecord: 0.0ms)
+
+
+  
+NoMethodError (undefined method `find_for_google' for #<Class:0x8303f3bc>):
+  
+app/controllers/users/omniauth_callbacks_controller.rb:3:in `google'
+Started GET "/users/auth/google/callback?state=b553c540e64a747aea51e3274d578715774d4114e4f2ee26&code=4/Qho6XjxwrgzGQf9mjvFsXj8QuRmJQsHeBstZ-9Ti81k" for 127.0.0.1 at 2017-06-26 18:11:30 +0900
+Started GET "/users/auth/google/callback?state=b553c540e64a747aea51e3274d578715774d4114e4f2ee26&code=4/Qho6XjxwrgzGQf9mjvFsXj8QuRmJQsHeBstZ-9Ti81k" for 127.0.0.1 at 2017-06-26 18:11:40 +0900
+Started GET "/" for 127.0.0.1 at 2017-06-26 18:11:40 +0900
+Processing by Users::OmniauthCallbacksController#failure as HTML
+  Parameters: {"state"=>"b553c540e64a747aea51e3274d578715774d4114e4f2ee26", "code"=>"4/Qho6XjxwrgzGQf9mjvFsXj8QuRmJQsHeBstZ-9Ti81k"}
+Redirected to http://localhost:3000/users/sign_in
+Completed 302 Found in 2ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-06-26 18:11:52 +0900
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by ProductsController#index as HTML
+Completed 401 Unauthorized in 27ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2017-06-26 18:11:52 +0900
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (1.8ms) [cache miss]
+  Rendered devise/sessions/new.html.erb within layouts/application (45.0ms)
+Completed 200 OK in 512ms (Views: 443.4ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/users/auth/google" for 127.0.0.1 at 2017-06-26 18:11:54 +0900
+Started GET "/users/auth/google" for 127.0.0.1 at 2017-06-26 18:11:54 +0900
+Started GET "/users/auth/google/callback?state=472605312218ecef0fa9fb7f6aab676b7b39f1194744c5c4&code=4/2jMk6SXPnTZTXF-EkLq30fJXddso3rvhMxdNH5dQSuc" for 127.0.0.1 at 2017-06-26 18:11:57 +0900
+Processing by Users::OmniauthCallbacksController#google as HTML
+  Parameters: {"state"=>"472605312218ecef0fa9fb7f6aab676b7b39f1194744c5c4", "code"=>"4/2jMk6SXPnTZTXF-EkLq30fJXddso3rvhMxdNH5dQSuc"}
+Completed 500 Internal Server Error in 49ms (ActiveRecord: 0.0ms)
+
+
+  
+NoMethodError (undefined method `find_for_google' for #<Class:0x82b0a888>):
+  
+app/controllers/users/omniauth_callbacks_controller.rb:3:in `google'
+Started GET "/users/auth/google/callback?state=472605312218ecef0fa9fb7f6aab676b7b39f1194744c5c4&code=4/2jMk6SXPnTZTXF-EkLq30fJXddso3rvhMxdNH5dQSuc" for 127.0.0.1 at 2017-06-26 18:12:17 +0900
+Started GET "/users/auth/google/callback?state=472605312218ecef0fa9fb7f6aab676b7b39f1194744c5c4&code=4/_Y9TLKTI2ZWE1RzrIqE9FyV2OYXYM_PT-TRoX2JldU4" for 127.0.0.1 at 2017-06-26 18:12:27 +0900
+Processing by Users::OmniauthCallbacksController#failure as HTML
+  Parameters: {"state"=>"472605312218ecef0fa9fb7f6aab676b7b39f1194744c5c4", "code"=>"4/2jMk6SXPnTZTXF-EkLq30fJXddso3rvhMxdNH5dQSuc"}
+Redirected to http://localhost:3000/users/sign_in
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms)
+
+
+Processing by Users::OmniauthCallbacksController#google as HTML
+  Parameters: {"state"=>"472605312218ecef0fa9fb7f6aab676b7b39f1194744c5c4", "code"=>"4/_Y9TLKTI2ZWE1RzrIqE9FyV2OYXYM_PT-TRoX2JldU4"}
+Completed 500 Internal Server Error in 64ms (ActiveRecord: 0.0ms)
+
+
+  
+NoMethodError (undefined method `find_for_google_oauth2' for #<Class:0xb2e1190c>):
+  
+app/controllers/users/omniauth_callbacks_controller.rb:3:in `google'
+Started GET "/users/auth/google/callback?state=472605312218ecef0fa9fb7f6aab676b7b39f1194744c5c4&code=4/_Y9TLKTI2ZWE1RzrIqE9FyV2OYXYM_PT-TRoX2JldU4" for 127.0.0.1 at 2017-06-26 18:12:42 +0900
+Processing by Users::OmniauthCallbacksController#failure as HTML
+  Parameters: {"state"=>"472605312218ecef0fa9fb7f6aab676b7b39f1194744c5c4", "code"=>"4/_Y9TLKTI2ZWE1RzrIqE9FyV2OYXYM_PT-TRoX2JldU4"}
+Redirected to http://localhost:3000/users/sign_in
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2017-06-26 18:12:42 +0900
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (1.1ms) [cache miss]
+  Rendered devise/sessions/new.html.erb within layouts/application (5.1ms)
+Completed 200 OK in 89ms (Views: 53.8ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/users/auth/google" for 127.0.0.1 at 2017-06-26 18:12:44 +0900
+Started GET "/users/auth/google" for 127.0.0.1 at 2017-06-26 18:12:44 +0900
+Started GET "/users/auth/google/callback?state=2aa76b0b0d65d4b6a8e923b1895a39e14e3414bcac81174a&code=4/hcF98dLGkVUYKqggCzaSywCyLoDhz_gl9tyuZ6Po4hk" for 127.0.0.1 at 2017-06-26 18:12:46 +0900
+Processing by Users::OmniauthCallbacksController#google as HTML
+  Parameters: {"state"=>"2aa76b0b0d65d4b6a8e923b1895a39e14e3414bcac81174a", "code"=>"4/hcF98dLGkVUYKqggCzaSywCyLoDhz_gl9tyuZ6Po4hk"}
+Completed 500 Internal Server Error in 45ms (ActiveRecord: 0.0ms)
+
+
+  
+NoMethodError (undefined method `find_for_google_oauth2' for #<Class:0xb2e1190c>):
+  
+app/controllers/users/omniauth_callbacks_controller.rb:3:in `google'
+Started GET "/users/auth/google/callback?state=2aa76b0b0d65d4b6a8e923b1895a39e14e3414bcac81174a&code=4/hcF98dLGkVUYKqggCzaSywCyLoDhz_gl9tyuZ6Po4hk" for 127.0.0.1 at 2017-06-26 18:16:01 +0900
+Processing by Users::OmniauthCallbacksController#failure as HTML
+  Parameters: {"state"=>"2aa76b0b0d65d4b6a8e923b1895a39e14e3414bcac81174a", "code"=>"4/hcF98dLGkVUYKqggCzaSywCyLoDhz_gl9tyuZ6Po4hk"}
+Redirected to http://localhost:3000/users/sign_in
+Completed 302 Found in 2ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2017-06-26 18:16:01 +0900
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (3.0ms) [cache miss]
+  Rendered devise/sessions/new.html.erb within layouts/application (6.5ms)
+Completed 200 OK in 141ms (Views: 95.8ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/users/auth/google" for 127.0.0.1 at 2017-06-26 18:16:05 +0900
+Started GET "/users/auth/google" for 127.0.0.1 at 2017-06-26 18:16:05 +0900
+Started GET "/users/auth/google/callback?state=5913b2d384d4f2c1fa290f8a3ada32839477e4d350dc47b3&code=4/tZ3c_2aBOXUU_Wn063f6_C-tyjAbdrxAaxOy_PYziLw" for 127.0.0.1 at 2017-06-26 18:16:08 +0900
+Processing by Users::OmniauthCallbacksController#google as HTML
+  Parameters: {"state"=>"5913b2d384d4f2c1fa290f8a3ada32839477e4d350dc47b3", "code"=>"4/tZ3c_2aBOXUU_Wn063f6_C-tyjAbdrxAaxOy_PYziLw"}
+Completed 500 Internal Server Error in 55ms (ActiveRecord: 0.0ms)
+
+
+  
+NoMethodError (undefined method `find_for_google' for #<Class:0x8449ead8>):
+  
+app/controllers/users/omniauth_callbacks_controller.rb:3:in `google'
+Started GET "/users/auth/google/callback?state=5913b2d384d4f2c1fa290f8a3ada32839477e4d350dc47b3&code=4/tZ3c_2aBOXUU_Wn063f6_C-tyjAbdrxAaxOy_PYziLw" for 127.0.0.1 at 2017-06-26 18:17:17 +0900
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Users::OmniauthCallbacksController#failure as HTML
+  Parameters: {"state"=>"5913b2d384d4f2c1fa290f8a3ada32839477e4d350dc47b3", "code"=>"4/tZ3c_2aBOXUU_Wn063f6_C-tyjAbdrxAaxOy_PYziLw"}
+Redirected to http://localhost:3000/users/sign_in
+Completed 302 Found in 31ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2017-06-26 18:17:18 +0900
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (2.0ms) [cache miss]
+  Rendered devise/sessions/new.html.erb within layouts/application (25.2ms)
+Completed 200 OK in 453ms (Views: 388.4ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/users/auth/google" for 127.0.0.1 at 2017-06-26 18:17:22 +0900
+Started GET "/users/auth/google" for 127.0.0.1 at 2017-06-26 18:17:22 +0900
+Started GET "/users/auth/google/callback?state=18d12b3385e5d2e766c8f51bfd514fa92d72ed3be31d95cb&code=4/k0b4BNeShn_uBP3NvHOb7f9ONEC9e5LVSUMBnOwTrco" for 127.0.0.1 at 2017-06-26 18:17:24 +0900
+Processing by Users::OmniauthCallbacksController#google as HTML
+  Parameters: {"state"=>"18d12b3385e5d2e766c8f51bfd514fa92d72ed3be31d95cb", "code"=>"4/k0b4BNeShn_uBP3NvHOb7f9ONEC9e5LVSUMBnOwTrco"}
+Completed 500 Internal Server Error in 68ms (ActiveRecord: 0.0ms)
+
+
+  
+NoMethodError (undefined method `find_for_google' for #<Class:0x82732864>):
+  
+app/controllers/users/omniauth_callbacks_controller.rb:3:in `google'
+Started GET "/users/auth/google/callback?state=18d12b3385e5d2e766c8f51bfd514fa92d72ed3be31d95cb&code=4/k0b4BNeShn_uBP3NvHOb7f9ONEC9e5LVSUMBnOwTrco" for 127.0.0.1 at 2017-06-26 18:19:49 +0900
+Started GET "/users/auth/google/callback?state=18d12b3385e5d2e766c8f51bfd514fa92d72ed3be31d95cb&code=4/_oMW0TkdC1DdhT2WfaAw1ZQijNrBAyMhYmTXJXF-JK0" for 127.0.0.1 at 2017-06-26 18:19:59 +0900
+Processing by Users::OmniauthCallbacksController#failure as HTML
+  Parameters: {"state"=>"18d12b3385e5d2e766c8f51bfd514fa92d72ed3be31d95cb", "code"=>"4/k0b4BNeShn_uBP3NvHOb7f9ONEC9e5LVSUMBnOwTrco"}
+Redirected to http://localhost:3000/users/sign_in
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms)
+
+
+Processing by Users::OmniauthCallbacksController#google as HTML
+  Parameters: {"state"=>"18d12b3385e5d2e766c8f51bfd514fa92d72ed3be31d95cb", "code"=>"4/_oMW0TkdC1DdhT2WfaAw1ZQijNrBAyMhYmTXJXF-JK0"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["email", "g.fail.sp@gmail.com"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists (4.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "g.fail.sp@gmail.com"], ["LIMIT", 1]]
+  [1m[35mSQL (5.1ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "confirmation_token", "confirmation_sent_at", "created_at", "updated_at", "provider", "uid", "token") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["email", "g.fail.sp@gmail.com"], ["encrypted_password", "$2a$11$45qCG6rbZ3fPZojhSOMuCe4mi8ScuJRnvI8ojDWplCY23UUiIYPMm"], ["confirmation_token", "rUdA8ye4YnGyHsDA-n45"], ["confirmation_sent_at", "2017-06-26 09:20:00.910196"], ["created_at", "2017-06-26 09:20:00.906313"], ["updated_at", "2017-06-26 09:20:00.906313"], ["provider", "google"], ["uid", "108195005108333074317"], ["token", "ya29.Glt1BBvY000nYCHgkkIgRoMq2spd8b5iJycx4hZkgXKkuE8xKqpYig-ePFAJv-Ao9npbpy6C5lFJfpcQR2DZpwxFekyqsfrVUcz5PDflgorYCF355CVbcbtZcGf6"]]
+  [1m[35m (199.9ms)[0m  [1m[36mcommit transaction[0m
+  Rendering devise/mailer/confirmation_instructions.html.erb
+  Rendered devise/mailer/confirmation_instructions.html.erb (7.3ms)
+Devise::Mailer#confirmation_instructions: processed outbound mail in 347.2ms
+Sent mail to g.fail.sp@gmail.com (68.1ms)
+Date: Mon, 26 Jun 2017 18:20:02 +0900
+From: please-change-me-at-config-initializers-devise@example.com
+Reply-To: please-change-me-at-config-initializers-devise@example.com
+To: g.fail.sp@gmail.com
+Message-ID: <5950d1c23e0d3_24e13eb31ec01883e@iwasbornindebian.mail>
+Subject: =?UTF-8?Q?=E3=82=A2=E3=82=AB=E3=82=A6=E3=83=B3=E3=83=88=E3=81=AE=E7=99=BB=E9=8C=B2=E6=96=B9=E6=B3=95?=
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<p>Welcome g.fail.sp@gmail.com!</p>
+
+<p>You can confirm your account email through the link below:</p>
+
+<p><a href="http://localhost:3000/users/confirmation?confirmation_token=rUdA8ye4YnGyHsDA-n45">Confirm my account</a></p>
+
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mcommit transaction[0m
+Completed 401 Unauthorized in 1703ms (ActiveRecord: 210.8ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2017-06-26 18:20:02 +0900
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (1.3ms) [cache miss]
+  Rendered devise/sessions/new.html.erb within layouts/application (5.3ms)
+Completed 200 OK in 58ms (Views: 56.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/auth/google" for 127.0.0.1 at 2017-06-26 18:20:05 +0900
+Started GET "/users/auth/google" for 127.0.0.1 at 2017-06-26 18:20:05 +0900
+Started GET "/users/auth/google/callback?state=1d504ec917a33931e82cc1cf610c9563df294def7e1eff3a&code=4/LSBqd26tidAcfcqVjgktnihb9KjJv8xXNnVoAfJfNkw" for 127.0.0.1 at 2017-06-26 18:20:08 +0900
+Processing by Users::OmniauthCallbacksController#google as HTML
+  Parameters: {"state"=>"1d504ec917a33931e82cc1cf610c9563df294def7e1eff3a", "code"=>"4/LSBqd26tidAcfcqVjgktnihb9KjJv8xXNnVoAfJfNkw"}
+  [1m[36mUser Load (8.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["email", "g.fail.sp@gmail.com"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mcommit transaction[0m
+Completed 401 Unauthorized in 23ms (ActiveRecord: 8.7ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2017-06-26 18:20:09 +0900
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (7.5ms) [cache miss]
+  Rendered devise/sessions/new.html.erb within layouts/application (10.9ms)
+Completed 200 OK in 84ms (Views: 82.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2017-06-26 18:25:54 +0900
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (1.6ms) [cache miss]
+  Rendered devise/sessions/new.html.erb within layouts/application (4.7ms)
+Completed 200 OK in 123ms (Views: 70.3ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/users/auth/google" for 127.0.0.1 at 2017-06-26 18:25:57 +0900
+Started GET "/users/auth/google" for 127.0.0.1 at 2017-06-26 18:25:58 +0900
+Started GET "/users/auth/google/callback?state=1fe46dc03a6aa1321201bc7fe2881c0d7e4a9af1d2ec0537&code=4/42bRrB5E9zEW8nzEX8akFfcThXsZySe3jMBBWmc7gps" for 127.0.0.1 at 2017-06-26 18:26:00 +0900
+Processing by Users::OmniauthCallbacksController#google as HTML
+  Parameters: {"state"=>"1fe46dc03a6aa1321201bc7fe2881c0d7e4a9af1d2ec0537", "code"=>"4/42bRrB5E9zEW8nzEX8akFfcThXsZySe3jMBBWmc7gps"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["email", "g.fail.sp@gmail.com"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mcommit transaction[0m
+Completed 401 Unauthorized in 13ms (ActiveRecord: 0.6ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2017-06-26 18:26:01 +0900
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (5.9ms) [cache miss]
+  Rendered devise/sessions/new.html.erb within layouts/application (11.6ms)
+Completed 200 OK in 83ms (Views: 77.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2017-06-26 18:26:24 +0900
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (6.4ms) [cache miss]
+  Rendered devise/sessions/new.html.erb within layouts/application (11.2ms)
+Completed 200 OK in 136ms (Views: 134.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/auth/google" for 127.0.0.1 at 2017-06-26 18:26:30 +0900
+Started GET "/users/auth/google" for 127.0.0.1 at 2017-06-26 18:26:30 +0900
+Started GET "/users/auth/google/callback?state=71f825dba3731ddead52a72bd85f28e0b5614e9bfe9b17b5&code=4/6oxbINezJf3qQW2rDx24TW_s10ykmc-rsbAkQc-K3m0" for 127.0.0.1 at 2017-06-26 18:26:32 +0900
+Processing by Users::OmniauthCallbacksController#google as HTML
+  Parameters: {"state"=>"71f825dba3731ddead52a72bd85f28e0b5614e9bfe9b17b5", "code"=>"4/6oxbINezJf3qQW2rDx24TW_s10ykmc-rsbAkQc-K3m0"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["email", "g.fail.sp@gmail.com"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mcommit transaction[0m
+Completed 401 Unauthorized in 6ms (ActiveRecord: 0.5ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2017-06-26 18:26:33 +0900
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (1.0ms) [cache miss]
+  Rendered devise/sessions/new.html.erb within layouts/application (3.7ms)
+Completed 200 OK in 71ms (Views: 69.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2017-06-26 18:29:41 +0900
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (1.4ms) [cache miss]
+  Rendered devise/sessions/new.html.erb within layouts/application (7.5ms)
+Completed 200 OK in 112ms (Views: 78.7ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/users/auth/google" for 127.0.0.1 at 2017-06-26 18:29:43 +0900
+Started GET "/users/auth/google" for 127.0.0.1 at 2017-06-26 18:29:43 +0900
+Started GET "/users/auth/google/callback?state=1b6b1803813527c1b9820e8701d1c8d57c76fbd1ae3e32af&code=4/CL-Oi-vQpVqDy15oR8-mH_MKZDOKe66uqnCvZtqR8mo" for 127.0.0.1 at 2017-06-26 18:29:45 +0900
+Processing by Users::OmniauthCallbacksController#google as HTML
+  Parameters: {"state"=>"1b6b1803813527c1b9820e8701d1c8d57c76fbd1ae3e32af", "code"=>"4/CL-Oi-vQpVqDy15oR8-mH_MKZDOKe66uqnCvZtqR8mo"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["email", "g.fail.sp@gmail.com"], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mcommit transaction[0m
+Completed 401 Unauthorized in 5ms (ActiveRecord: 0.5ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2017-06-26 18:29:46 +0900
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (1.5ms) [cache miss]
+  Rendered devise/sessions/new.html.erb within layouts/application (9.0ms)
+Completed 200 OK in 82ms (Views: 80.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2017-06-26 18:29:56 +0900
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (4.7ms) [cache miss]
+  Rendered devise/sessions/new.html.erb within layouts/application (72.6ms)
+Completed 200 OK in 585ms (Views: 495.4ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/users/auth/google" for 127.0.0.1 at 2017-06-26 18:29:58 +0900
+Started GET "/users/auth/google" for 127.0.0.1 at 2017-06-26 18:29:58 +0900
+Started GET "/users/auth/google/callback?state=0005dac59948c88f1f828647f1151fe067814b528f3ac6f1&code=4/vs-zYV02l-_PCH-i7K6vGLVkGx0ZlswIuFN23WrIonQ" for 127.0.0.1 at 2017-06-26 18:30:01 +0900
+Processing by Users::OmniauthCallbacksController#google as HTML
+  Parameters: {"state"=>"0005dac59948c88f1f828647f1151fe067814b528f3ac6f1", "code"=>"4/vs-zYV02l-_PCH-i7K6vGLVkGx0ZlswIuFN23WrIonQ"}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["email", "g.fail.sp@gmail.com"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mcommit transaction[0m
+Completed 401 Unauthorized in 15ms (ActiveRecord: 0.7ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2017-06-26 18:30:01 +0900
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (3.6ms) [cache miss]
+  Rendered devise/sessions/new.html.erb within layouts/application (18.7ms)
+Completed 200 OK in 129ms (Views: 128.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2017-06-26 18:30:11 +0900
+Processing by Devise::SessionsController#new as HTML
+Started GET "/users/auth/google" for 127.0.0.1 at 2017-06-26 18:30:21 +0900
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (1.8ms) [cache miss]
+  Rendered devise/sessions/new.html.erb within layouts/application (6.5ms)
+Completed 200 OK in 251ms (Views: 188.0ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/users/auth/google" for 127.0.0.1 at 2017-06-26 18:30:23 +0900
+Started GET "/users/auth/google" for 127.0.0.1 at 2017-06-26 18:30:23 +0900
+Started GET "/users/auth/google/callback?state=e76728153a6038a646aa2510b9cfb106dc8e6da5becabba7&code=4/rLxjMx_uzt-CRZGwTNmth2JUqg-7AcT8qGSwB7dB5qY" for 127.0.0.1 at 2017-06-26 18:30:26 +0900
+Processing by Users::OmniauthCallbacksController#google as HTML
+  Parameters: {"state"=>"e76728153a6038a646aa2510b9cfb106dc8e6da5becabba7", "code"=>"4/rLxjMx_uzt-CRZGwTNmth2JUqg-7AcT8qGSwB7dB5qY"}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["email", "g.fail.sp@gmail.com"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+Completed 401 Unauthorized in 72ms (ActiveRecord: 2.1ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2017-06-26 18:30:27 +0900
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (1.0ms) [cache miss]
+  Rendered devise/sessions/new.html.erb within layouts/application (5.0ms)
+Completed 200 OK in 72ms (Views: 70.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/auth/google" for 127.0.0.1 at 2017-06-26 18:30:43 +0900
+Started GET "/users/auth/google" for 127.0.0.1 at 2017-06-26 18:30:43 +0900
+Started GET "/users/auth/google/callback?state=e1819e2246f417da4625fa24923a8a0a8c810fd0be6856b3&code=4/vETpRmRAdM7jmYkaPKXOwUHQOH3JFXXPcKqF4A-3MeA" for 127.0.0.1 at 2017-06-26 18:30:45 +0900
+Processing by Users::OmniauthCallbacksController#google as HTML
+  Parameters: {"state"=>"e1819e2246f417da4625fa24923a8a0a8c810fd0be6856b3", "code"=>"4/vETpRmRAdM7jmYkaPKXOwUHQOH3JFXXPcKqF4A-3MeA"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["email", "g.fail.sp@gmail.com"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+Completed 401 Unauthorized in 34ms (ActiveRecord: 5.1ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2017-06-26 18:30:46 +0900
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (1.6ms) [cache miss]
+  Rendered devise/sessions/new.html.erb within layouts/application (6.7ms)
+Completed 200 OK in 68ms (Views: 66.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2017-06-26 18:32:49 +0900
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (1.2ms) [cache miss]
+  Rendered devise/sessions/new.html.erb within layouts/application (5.6ms)
+Completed 200 OK in 108ms (Views: 74.7ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/users/auth/google" for 127.0.0.1 at 2017-06-26 18:32:51 +0900
+Started GET "/users/auth/google" for 127.0.0.1 at 2017-06-26 18:32:51 +0900
+Started GET "/users/auth/google/callback?state=02c077c543d313e0ab18c63b29990727d7431366ea9e76dd&code=4/a4Z2b2d8xrTcbE6FxnhyeCUwUDLatNCXTm7M-vY3TLE" for 127.0.0.1 at 2017-06-26 18:32:53 +0900
+Processing by Users::OmniauthCallbacksController#google as HTML
+  Parameters: {"state"=>"02c077c543d313e0ab18c63b29990727d7431366ea9e76dd", "code"=>"4/a4Z2b2d8xrTcbE6FxnhyeCUwUDLatNCXTm7M-vY3TLE"}
+  [1m[36mUser Load (1.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["email", "g.fail.sp@gmail.com"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+Completed 401 Unauthorized in 6ms (ActiveRecord: 1.6ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2017-06-26 18:32:53 +0900
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (1.7ms) [cache miss]
+  Rendered devise/sessions/new.html.erb within layouts/application (5.8ms)
+Completed 200 OK in 59ms (Views: 57.7ms | ActiveRecord: 0.0ms)
+
+
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" LIMIT ?[0m  [["LIMIT", 11]]
+Started GET "/users/auth/google" for 127.0.0.1 at 2017-06-26 18:33:35 +0900
+Started GET "/users/auth/google" for 127.0.0.1 at 2017-06-26 18:33:36 +0900
+Started GET "/users/auth/google/callback?state=991956df650f43fd9280975466dd47982b0c11d7bb521f6b&code=4/Nwfuts9nvXtQxSLwOCSgxih75QScJFwWCDfILR5vi24" for 127.0.0.1 at 2017-06-26 18:33:38 +0900
+Processing by Users::OmniauthCallbacksController#google as HTML
+  Parameters: {"state"=>"991956df650f43fd9280975466dd47982b0c11d7bb521f6b", "code"=>"4/Nwfuts9nvXtQxSLwOCSgxih75QScJFwWCDfILR5vi24"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["email", "g.fail.sp@gmail.com"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mcommit transaction[0m
+Completed 401 Unauthorized in 35ms (ActiveRecord: 0.9ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2017-06-26 18:33:38 +0900
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (6.6ms) [cache miss]
+  Rendered devise/sessions/new.html.erb within layouts/application (10.1ms)
+Completed 200 OK in 101ms (Views: 99.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2017-06-26 18:34:25 +0900
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (1.9ms) [cache miss]
+  Rendered devise/sessions/new.html.erb within layouts/application (4.8ms)
+Completed 200 OK in 86ms (Views: 58.7ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/users/auth/google" for 127.0.0.1 at 2017-06-26 18:34:26 +0900
+Started GET "/users/auth/google" for 127.0.0.1 at 2017-06-26 18:34:27 +0900
+Started GET "/users/auth/google/callback?state=595df784d9834acbf4214f1d3daea4bb413bebcf3cf05671&code=4/wmnbA97tMNl2Uf1LNQ6aKeqeJtINkNyYXbVXelX6pLM" for 127.0.0.1 at 2017-06-26 18:34:29 +0900
+Processing by Users::OmniauthCallbacksController#google as HTML
+  Parameters: {"state"=>"595df784d9834acbf4214f1d3daea4bb413bebcf3cf05671", "code"=>"4/wmnbA97tMNl2Uf1LNQ6aKeqeJtINkNyYXbVXelX6pLM"}
+  [1m[36mUser Load (1.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["email", "g.fail.sp@gmail.com"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mcommit transaction[0m
+Completed 401 Unauthorized in 7ms (ActiveRecord: 1.7ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2017-06-26 18:34:29 +0900
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (1.4ms) [cache miss]
+  Rendered devise/sessions/new.html.erb within layouts/application (5.7ms)
+Completed 200 OK in 99ms (Views: 96.8ms | ActiveRecord: 0.0ms)
+
+
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" LIMIT ?[0m  [["LIMIT", 11]]
+  [1m[35mSQL (8.7ms)[0m  [1m[31mDELETE FROM "users"[0m
+Started GET "/users/auth/google" for 127.0.0.1 at 2017-06-26 18:36:08 +0900
+Started GET "/users/auth/google" for 127.0.0.1 at 2017-06-26 18:36:08 +0900
+Started GET "/users/auth/google/callback?state=ea458c516f1bdd89f6a4915ae7e2fc9598f8db69e211eb8f&code=4/h2ulr3k4BbsFTQUwC-zSA4Iv4G5SzoFzTS_dww5T_EI" for 127.0.0.1 at 2017-06-26 18:36:11 +0900
+Processing by Users::OmniauthCallbacksController#google as HTML
+  Parameters: {"state"=>"ea458c516f1bdd89f6a4915ae7e2fc9598f8db69e211eb8f", "code"=>"4/h2ulr3k4BbsFTQUwC-zSA4Iv4G5SzoFzTS_dww5T_EI"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["email", "g.fail.sp@gmail.com"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "g.fail.sp@gmail.com"], ["LIMIT", 1]]
+  [1m[35mSQL (8.4ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "confirmation_token", "confirmation_sent_at", "created_at", "updated_at", "provider", "uid", "token") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["email", "g.fail.sp@gmail.com"], ["encrypted_password", "$2a$11$nROHPaQBSogWpmEBX3DUQejStkZZhw4yxJUjABWr8oPbrIrHPxg/a"], ["confirmation_token", "-DBYJAxv1sgAckassPXf"], ["confirmation_sent_at", "2017-06-26 09:36:12.474990"], ["created_at", "2017-06-26 09:36:12.474801"], ["updated_at", "2017-06-26 09:36:12.474801"], ["provider", "google"], ["uid", "108195005108333074317"], ["token", "ya29.Glt1BKQltzfZ9yy0Ya-NyAQr8zMf2ce3SrPo-qlIcgcobuOEQ3jg51X8PwodSjc7TOd2XFM0PVM8iz5yeRMyh18ec8ZxKIcoEWR3ROlqElyzXgF1LabnrgmtVM-W"]]
+  [1m[35m (6.1ms)[0m  [1m[36mcommit transaction[0m
+  Rendering devise/mailer/confirmation_instructions.html.erb
+  Rendered devise/mailer/confirmation_instructions.html.erb (1.3ms)
+Devise::Mailer#confirmation_instructions: processed outbound mail in 179.1ms
+Sent mail to g.fail.sp@gmail.com (30.8ms)
+Date: Mon, 26 Jun 2017 18:36:12 +0900
+From: please-change-me-at-config-initializers-devise@example.com
+Reply-To: please-change-me-at-config-initializers-devise@example.com
+To: g.fail.sp@gmail.com
+Message-ID: <5950d58cd17a9_26a93e5b09d8793f@iwasbornindebian.mail>
+Subject: =?UTF-8?Q?=E3=82=A2=E3=82=AB=E3=82=A6=E3=83=B3=E3=83=88=E3=81=AE=E7=99=BB=E9=8C=B2=E6=96=B9=E6=B3=95?=
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<p>Welcome g.fail.sp@gmail.com!</p>
+
+<p>You can confirm your account email through the link below:</p>
+
+<p><a href="http://localhost:3000/users/confirmation?confirmation_token=-DBYJAxv1sgAckassPXf">Confirm my account</a></p>
+
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (3.1ms)[0m  [1m[33mUPDATE "users" SET "confirmed_at" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["confirmed_at", "2017-06-26 09:36:12.880164"], ["updated_at", "2017-06-26 09:36:12.881513"], ["id", 3]]
+  [1m[35m (4.1ms)[0m  [1m[36mcommit transaction[0m
+Completed 500 Internal Server Error in 696ms (ActiveRecord: 23.1ms)
+
+
+  
+NoMethodError (undefined method `persisted?' for true:TrueClass):
+  
+app/controllers/users/omniauth_callbacks_controller.rb:5:in `google'
+Started GET "/users/auth/google/callback?state=ea458c516f1bdd89f6a4915ae7e2fc9598f8db69e211eb8f&code=4/h2ulr3k4BbsFTQUwC-zSA4Iv4G5SzoFzTS_dww5T_EI" for 127.0.0.1 at 2017-06-26 18:36:41 +0900
+Processing by Users::OmniauthCallbacksController#failure as HTML
+  Parameters: {"state"=>"ea458c516f1bdd89f6a4915ae7e2fc9598f8db69e211eb8f", "code"=>"4/h2ulr3k4BbsFTQUwC-zSA4Iv4G5SzoFzTS_dww5T_EI"}
+Redirected to http://localhost:3000/users/sign_in
+Completed 302 Found in 2ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2017-06-26 18:36:41 +0900
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (1.7ms) [cache miss]
+  Rendered devise/sessions/new.html.erb within layouts/application (4.7ms)
+Completed 200 OK in 71ms (Views: 69.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/auth/google" for 127.0.0.1 at 2017-06-26 18:36:44 +0900
+Started GET "/users/auth/google" for 127.0.0.1 at 2017-06-26 18:36:44 +0900
+Started GET "/users/auth/google/callback?state=22ef9045bc02b566e7c645f539c423e8e468b9449a9fc025&code=4/yZr5qVH1mpUqGPN172gGlyMYMHuC_HN48SjY2pU8JTc" for 127.0.0.1 at 2017-06-26 18:36:46 +0900
+Processing by Users::OmniauthCallbacksController#google as HTML
+  Parameters: {"state"=>"22ef9045bc02b566e7c645f539c423e8e468b9449a9fc025", "code"=>"4/yZr5qVH1mpUqGPN172gGlyMYMHuC_HN48SjY2pU8JTc"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["email", "g.fail.sp@gmail.com"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (2.1ms)[0m  [1m[33mUPDATE "users" SET "current_sign_in_at" = ?, "last_sign_in_at" = ?, "current_sign_in_ip" = ?, "last_sign_in_ip" = ?, "sign_in_count" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["current_sign_in_at", "2017-06-26 09:36:46.792495"], ["last_sign_in_at", "2017-06-26 09:36:46.792495"], ["current_sign_in_ip", "127.0.0.1"], ["last_sign_in_ip", "127.0.0.1"], ["sign_in_count", 1], ["updated_at", "2017-06-26 09:36:46.794405"], ["id", 3]]
+  [1m[35m (6.9ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/users/auth/google/callback?state=595df784d9834acbf4214f1d3daea4bb413bebcf3cf05671&code=4/wmnbA97tMNl2Uf1LNQ6aKeqeJtINkNyYXbVXelX6pLM
+Completed 302 Found in 24ms (ActiveRecord: 9.5ms)
+
+
+Started GET "/users/auth/google/callback?state=595df784d9834acbf4214f1d3daea4bb413bebcf3cf05671&code=4/wmnbA97tMNl2Uf1LNQ6aKeqeJtINkNyYXbVXelX6pLM" for 127.0.0.1 at 2017-06-26 18:36:46 +0900
+Processing by Users::OmniauthCallbacksController#failure as HTML
+  Parameters: {"state"=>"595df784d9834acbf4214f1d3daea4bb413bebcf3cf05671", "code"=>"4/wmnbA97tMNl2Uf1LNQ6aKeqeJtINkNyYXbVXelX6pLM"}
+Redirected to http://localhost:3000/users/sign_in
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2017-06-26 18:36:46 +0900
+Processing by Devise::SessionsController#new as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+Redirected to http://localhost:3000/
+Filter chain halted as :require_no_authentication rendered or redirected
+Completed 302 Found in 8ms (ActiveRecord: 0.3ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-06-26 18:36:46 +0900
+Processing by ProductsController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering products/index.html.erb within layouts/application
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  Rendered products/index.html.erb within layouts/application (22.1ms)
+Completed 200 OK in 90ms (Views: 74.9ms | ActiveRecord: 1.0ms)
+
+
+Started DELETE "/users/sign_out" for 127.0.0.1 at 2017-06-26 18:36:48 +0900
+Processing by Devise::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"6xSS7LyC9DrEE6I/n48WINv0RVXRMdoTVTQtxMT55TohMtyc1PZnMFCOZlwgsB1bJ/PhSnMj4bmU2/xGHZyWVQ=="}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 10ms (ActiveRecord: 0.4ms)
+
+
+Started DELETE "/users/sign_out" for 127.0.0.1 at 2017-06-26 18:36:48 +0900
+Processing by Devise::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"6xSS7LyC9DrEE6I/n48WINv0RVXRMdoTVTQtxMT55TohMtyc1PZnMFCOZlwgsB1bJ/PhSnMj4bmU2/xGHZyWVQ=="}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 8ms (ActiveRecord: 0.5ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-06-26 18:36:48 +0900
+Processing by ProductsController#index as HTML
+Completed 401 Unauthorized in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2017-06-26 18:36:48 +0900
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (1.3ms) [cache miss]
+  Rendered devise/sessions/new.html.erb within layouts/application (19.0ms)
+Completed 200 OK in 139ms (Views: 137.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/auth/google" for 127.0.0.1 at 2017-06-26 18:36:50 +0900
+Started GET "/users/auth/google" for 127.0.0.1 at 2017-06-26 18:36:50 +0900
+Started GET "/users/auth/google/callback?state=35b981e2812a209f3f3363fae9613bb38519c8229ae62831&code=4/7cX9DWa05IJqkgh8CZhkO6R3aR4C7Jn9iIQsY-kvQE4" for 127.0.0.1 at 2017-06-26 18:36:52 +0900
+Processing by Users::OmniauthCallbacksController#google as HTML
+  Parameters: {"state"=>"35b981e2812a209f3f3363fae9613bb38519c8229ae62831", "code"=>"4/7cX9DWa05IJqkgh8CZhkO6R3aR4C7Jn9iIQsY-kvQE4"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["email", "g.fail.sp@gmail.com"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (5.7ms)[0m  [1m[33mUPDATE "users" SET "current_sign_in_at" = ?, "sign_in_count" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["current_sign_in_at", "2017-06-26 09:36:53.158115"], ["sign_in_count", 2], ["updated_at", "2017-06-26 09:36:53.161038"], ["id", 3]]
+  [1m[35m (9.4ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 28ms (ActiveRecord: 15.7ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-06-26 18:36:53 +0900
+Processing by ProductsController#index as HTML
+  [1m[36mUser Load (1.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering products/index.html.erb within layouts/application
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  Rendered products/index.html.erb within layouts/application (6.0ms)
+Completed 200 OK in 137ms (Views: 127.2ms | ActiveRecord: 1.8ms)
+
+
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" LIMIT ?[0m  [["LIMIT", 11]]
+Started GET "/users/auth/google/callback?state=35b981e2812a209f3f3363fae9613bb38519c8229ae62831&code=4/9uCHEcVebdHhn4mL2IAgHWOry9-lLHTCIPQuLD2itac" for 127.0.0.1 at 2017-06-26 18:37:22 +0900
+Processing by Users::OmniauthCallbacksController#failure as HTML
+  Parameters: {"state"=>"35b981e2812a209f3f3363fae9613bb38519c8229ae62831", "code"=>"4/9uCHEcVebdHhn4mL2IAgHWOry9-lLHTCIPQuLD2itac"}
+Redirected to http://localhost:3000/users/sign_in
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2017-06-26 18:37:23 +0900
+Processing by Devise::SessionsController#new as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+Redirected to http://localhost:3000/
+Filter chain halted as :require_no_authentication rendered or redirected
+Completed 302 Found in 31ms (ActiveRecord: 0.4ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-06-26 18:37:23 +0900
+Processing by ProductsController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering products/index.html.erb within layouts/application
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  Rendered products/index.html.erb within layouts/application (2.2ms)
+Completed 200 OK in 144ms (Views: 128.8ms | ActiveRecord: 0.5ms)
+
+
+Started DELETE "/users/sign_out" for 127.0.0.1 at 2017-06-26 18:37:25 +0900
+Processing by Devise::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"WC8QERGYSH8RdSWGJe7inh6d4WhVCX6PmC7BixEF0v3JD5g7Frsv8i37tuQHZjaDaLLjFgbHx0OrfSVXGOrLOA=="}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 13ms (ActiveRecord: 0.4ms)
+
+
+Started DELETE "/users/sign_out" for 127.0.0.1 at 2017-06-26 18:37:25 +0900
+Processing by Devise::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"WC8QERGYSH8RdSWGJe7inh6d4WhVCX6PmC7BixEF0v3JD5g7Frsv8i37tuQHZjaDaLLjFgbHx0OrfSVXGOrLOA=="}
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 8ms (ActiveRecord: 1.2ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-06-26 18:37:25 +0900
+Processing by ProductsController#index as HTML
+Completed 401 Unauthorized in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2017-06-26 18:37:25 +0900
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (1.0ms) [cache miss]
+  Rendered devise/sessions/new.html.erb within layouts/application (3.5ms)
+Completed 200 OK in 92ms (Views: 91.5ms | ActiveRecord: 0.0ms)
+
+

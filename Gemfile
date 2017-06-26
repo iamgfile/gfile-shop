@@ -66,3 +66,5 @@ gem 'rqrcode-rails3'
 gem 'omniauth'
 gem 'omniauth-facebook'
 gem 'dotenv-rails'
+
+gem 'omniauth-google-oauth2'
