@@ -2664,3 +2664,864 @@ Processing by Devise::RegistrationsController#new as HTML
 Completed 200 OK in 56ms (Views: 55.5ms | ActiveRecord: 0.0ms)
 
 
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateComments (20170626111421)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (1.1ms)[0m  [1m[35mCREATE TABLE "comments" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "user_id" integer, "product_id" integer, "body" text, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20170626111421"]]
+  [1m[35m (7.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_unlock_token' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_unlock_token' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_confirmation_token' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_confirmation_token' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_reset_password_token' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_reset_password_token' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_email' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_email' AND type='index'
+[0m
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT  "products".* FROM "products" ORDER BY "products"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mComment Load (0.1ms)[0m  [1m[34mSELECT  "comments".* FROM "comments" WHERE "comments"."product_id" = ? LIMIT ?[0m  [["product_id", 4], ["LIMIT", 11]]
+Started GET "/products/3" for 127.0.0.1 at 2017-06-26 20:20:10 +0900
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by ProductsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+Completed 401 Unauthorized in 70ms (ActiveRecord: 0.9ms)
+
+
+Started GET "/products/3" for 127.0.0.1 at 2017-06-26 20:20:10 +0900
+Processing by ProductsController#show as HTML
+  Parameters: {"id"=>"3"}
+Completed 401 Unauthorized in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2017-06-26 20:20:10 +0900
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (8.2ms) [cache miss]
+  Rendered devise/sessions/new.html.erb within layouts/application (12.5ms)
+Completed 200 OK in 2507ms (Views: 2499.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/auth/google" for 127.0.0.1 at 2017-06-26 20:20:14 +0900
+Started GET "/users/auth/google" for 127.0.0.1 at 2017-06-26 20:20:14 +0900
+Started GET "/users/auth/google" for 127.0.0.1 at 2017-06-26 20:20:21 +0900
+Started GET "/users/auth/google" for 127.0.0.1 at 2017-06-26 20:20:21 +0900
+Started GET "/users/auth/google" for 127.0.0.1 at 2017-06-26 20:24:52 +0900
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/users/auth/google" for 127.0.0.1 at 2017-06-26 20:24:52 +0900
+Started GET "/users/auth/google/callback?state=613fdd520bb991bc58716e48ab0d975a27af807db4bb44f4&code=4/p4pT4WMJdIzhEg2hrn4Eh99FmZ6J2-wA_gaCPXyN83g" for 127.0.0.1 at 2017-06-26 20:24:54 +0900
+Processing by Users::OmniauthCallbacksController#google as HTML
+  Parameters: {"state"=>"613fdd520bb991bc58716e48ab0d975a27af807db4bb44f4", "code"=>"4/p4pT4WMJdIzhEg2hrn4Eh99FmZ6J2-wA_gaCPXyN83g"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["email", "g.fail.sp@gmail.com"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (2.1ms)[0m  [1m[33mUPDATE "users" SET "current_sign_in_at" = ?, "last_sign_in_at" = ?, "sign_in_count" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["current_sign_in_at", "2017-06-26 11:24:55.781766"], ["last_sign_in_at", "2017-06-26 09:46:13.109042"], ["sign_in_count", 6], ["updated_at", "2017-06-26 11:24:55.782792"], ["id", 3]]
+  [1m[35m (7.8ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/products/3
+Completed 302 Found in 79ms (ActiveRecord: 10.9ms)
+
+
+Started GET "/products/3" for 127.0.0.1 at 2017-06-26 20:24:55 +0900
+Processing by ProductsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mCACHE Product Load (0.0ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering products/show.html.erb within layouts/application
+  [1m[36mComment Load (0.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."product_id" = ?[0m  [["product_id", 3]]
+  Rendered comments/_form.html.erb (371.3ms)
+  Rendered products/show.html.erb within layouts/application (378.2ms)
+Completed 500 Internal Server Error in 455ms (ActiveRecord: 1.9ms)
+
+
+  
+ActionView::Template::Error (undefined local variable or method `comment' for #<#<Class:0x83b6843c>:0x83b58578>
+Did you mean?  @comment
+               @comments):
+    1: <%= form_with(model: comment, local: true) do |form| %>
+    2:   <% if comment.errors.any? %>
+    3:     <div id="error_explanation">
+    4:       <h2><%= pluralize(comment.errors.count, "error") %> prohibited this comment from being saved:</h2>
+  
+app/views/comments/_form.html.erb:1:in `_app_views_comments__form_html_erb__669646958__1042910448'
+app/views/products/show.html.erb:41:in `_app_views_products_show_html_erb___821125975__1042592088'
+Started GET "/users/auth/google/callback?state=613fdd520bb991bc58716e48ab0d975a27af807db4bb44f4&code=4/YP1m9hAKEhCJuQ5B9FtO_igdTPAwEclBCQHKr6-jnL0" for 127.0.0.1 at 2017-06-26 20:25:01 +0900
+Processing by Users::OmniauthCallbacksController#failure as HTML
+  Parameters: {"state"=>"613fdd520bb991bc58716e48ab0d975a27af807db4bb44f4", "code"=>"4/YP1m9hAKEhCJuQ5B9FtO_igdTPAwEclBCQHKr6-jnL0"}
+Redirected to http://localhost:3000/users/sign_in
+Completed 302 Found in 11ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2017-06-26 20:25:02 +0900
+Processing by Devise::SessionsController#new as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+Redirected to http://localhost:3000/
+Filter chain halted as :require_no_authentication rendered or redirected
+Completed 302 Found in 8ms (ActiveRecord: 0.3ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-06-26 20:25:02 +0900
+Processing by ProductsController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering products/index.html.erb within layouts/application
+  [1m[36mProduct Load (0.3ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  Rendered products/index.html.erb within layouts/application (9.5ms)
+Completed 200 OK in 616ms (Views: 612.8ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/products/3" for 127.0.0.1 at 2017-06-26 20:25:04 +0900
+Processing by ProductsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mUser Load (1.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mCACHE Product Load (0.0ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering products/show.html.erb within layouts/application
+  [1m[36mComment Load (0.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."product_id" = ?[0m  [["product_id", 3]]
+  Rendered comments/_form.html.erb (346.2ms)
+  Rendered products/show.html.erb within layouts/application (350.7ms)
+Completed 500 Internal Server Error in 368ms (ActiveRecord: 1.7ms)
+
+
+  
+ActionView::Template::Error (undefined local variable or method `comment' for #<#<Class:0x83b6843c>:0x857c0f30>
+Did you mean?  @comment
+               @comments):
+    1: <%= form_with(model: comment, local: true) do |form| %>
+    2:   <% if comment.errors.any? %>
+    3:     <div id="error_explanation">
+    4:       <h2><%= pluralize(comment.errors.count, "error") %> prohibited this comment from being saved:</h2>
+  
+app/views/comments/_form.html.erb:1:in `_app_views_comments__form_html_erb__669646958__1033265348'
+app/views/products/show.html.erb:41:in `_app_views_products_show_html_erb___821125975__1027732898'
+Started GET "/products/3" for 127.0.0.1 at 2017-06-26 20:25:44 +0900
+Processing by ProductsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mCACHE Product Load (0.0ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering products/show.html.erb within layouts/application
+  [1m[36mComment Load (0.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."product_id" = ?[0m  [["product_id", 3]]
+  Rendered comments/_form.html.erb (4.9ms)
+  Rendered products/show.html.erb within layouts/application (19.6ms)
+Completed 500 Internal Server Error in 40ms (ActiveRecord: 0.7ms)
+
+
+  
+ActionView::Template::Error (undefined method `to_model' for #<ActiveRecord::AssociationRelation []>
+Did you mean?  to_xml):
+    1: <%= form_with(model: @comments, local: true) do |form| %>
+    2:   <% if comment.errors.any? %>
+    3:     <div id="error_explanation">
+    4:       <h2><%= pluralize(comment.errors.count, "error") %> prohibited this comment from being saved:</h2>
+  
+app/views/comments/_form.html.erb:1:in `_app_views_comments__form_html_erb__669646958__1036790188'
+app/views/products/show.html.erb:41:in `_app_views_products_show_html_erb___821125975__630628018'
+Started GET "/products/new" for 127.0.0.1 at 2017-06-26 20:27:05 +0900
+Processing by ProductsController#new as HTML
+  [1m[36mUser Load (1.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering products/new.html.erb within layouts/application
+  Rendered products/_form.html.erb (141.6ms) [cache miss]
+  Rendered products/new.html.erb within layouts/application (143.0ms)
+Completed 200 OK in 243ms (Views: 234.6ms | ActiveRecord: 1.7ms)
+
+
+Started GET "/products" for 127.0.0.1 at 2017-06-26 20:27:07 +0900
+Processing by ProductsController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering products/index.html.erb within layouts/application
+  [1m[36mProduct Load (0.4ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  Rendered products/index.html.erb within layouts/application (12.2ms)
+Completed 200 OK in 108ms (Views: 99.6ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/products/3" for 127.0.0.1 at 2017-06-26 20:27:34 +0900
+Processing by ProductsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mCACHE Product Load (0.0ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering products/show.html.erb within layouts/application
+  [1m[36mComment Load (0.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."product_id" = ?[0m  [["product_id", 3]]
+  Rendered comments/_form.html.erb (303.7ms)
+  Rendered products/show.html.erb within layouts/application (312.1ms)
+Completed 500 Internal Server Error in 327ms (ActiveRecord: 0.6ms)
+
+
+  
+ActionView::Template::Error (undefined local variable or method `comment' for #<#<Class:0x83b6843c>:0x855b7e28>
+Did you mean?  @comment
+               @comments):
+    1: <%= form_with(model: comment, local: false) do |form| %>
+    2:   <% if comment.errors.any? %>
+    3:     <div id="error_explanation">
+    4:       <h2><%= pluralize(comment.errors.count, "error") %> prohibited this comment from being saved:</h2>
+  
+app/views/comments/_form.html.erb:1:in `_app_views_comments__form_html_erb__669646958__1030281738'
+app/views/products/show.html.erb:41:in `_app_views_products_show_html_erb___821125975__1028652558'
+Started GET "/products" for 127.0.0.1 at 2017-06-26 20:27:36 +0900
+Processing by ProductsController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering products/index.html.erb within layouts/application
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  Rendered products/index.html.erb within layouts/application (7.4ms)
+Completed 200 OK in 151ms (Views: 145.3ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/products" for 127.0.0.1 at 2017-06-26 20:27:47 +0900
+Processing by ProductsController#index as HTML
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering products/index.html.erb within layouts/application
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  Rendered products/index.html.erb within layouts/application (10.0ms)
+Completed 200 OK in 87ms (Views: 84.6ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/products/3" for 127.0.0.1 at 2017-06-26 20:27:49 +0900
+Processing by ProductsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mCACHE Product Load (0.0ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering products/show.html.erb within layouts/application
+  [1m[36mComment Load (0.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."product_id" = ?[0m  [["product_id", 3]]
+  Rendered comments/_form.html.erb (428.6ms)
+  Rendered products/show.html.erb within layouts/application (432.3ms)
+Completed 500 Internal Server Error in 451ms (ActiveRecord: 0.5ms)
+
+
+  
+ActionView::Template::Error (undefined local variable or method `comment' for #<#<Class:0x83b6843c>:0x85fc1c5c>
+Did you mean?  @comment
+               @comments):
+    1: <%= form_with(model: comment, local: false) do |form| %>
+    2:   <% if comment.errors.any? %>
+    3:     <div id="error_explanation">
+    4:       <h2><%= pluralize(comment.errors.count, "error") %> prohibited this comment from being saved:</h2>
+  
+app/views/comments/_form.html.erb:1:in `_app_views_comments__form_html_erb__669646958__1023658848'
+app/views/products/show.html.erb:41:in `_app_views_products_show_html_erb___821125975__1023536908'
+Started GET "/products" for 127.0.0.1 at 2017-06-26 20:27:51 +0900
+Processing by ProductsController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering products/index.html.erb within layouts/application
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  Rendered products/index.html.erb within layouts/application (2.4ms)
+Completed 200 OK in 101ms (Views: 98.8ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/products" for 127.0.0.1 at 2017-06-26 20:27:59 +0900
+Processing by ProductsController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering products/index.html.erb within layouts/application
+  [1m[36mProduct Load (3.6ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  Rendered products/index.html.erb within layouts/application (6.5ms)
+Completed 200 OK in 68ms (Views: 62.0ms | ActiveRecord: 3.9ms)
+
+
+Started GET "/products/3" for 127.0.0.1 at 2017-06-26 20:28:00 +0900
+Processing by ProductsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mCACHE Product Load (0.0ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering products/show.html.erb within layouts/application
+  [1m[36mComment Load (0.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."product_id" = ?[0m  [["product_id", 3]]
+  Rendered comments/_form.html.erb (543.2ms)
+  Rendered products/show.html.erb within layouts/application (548.4ms)
+Completed 500 Internal Server Error in 566ms (ActiveRecord: 0.6ms)
+
+
+  
+ActionView::Template::Error (undefined local variable or method `product' for #<#<Class:0x83b6843c>:0x86ae8054>
+Did you mean?  @product):
+    1: <%= form_with(model: product, local: true) do |form| %>
+    2:   <% if comment.errors.any? %>
+    3:     <div id="error_explanation">
+    4:       <h2><%= pluralize(comment.errors.count, "error") %> prohibited this comment from being saved:</h2>
+  
+app/views/comments/_form.html.erb:1:in `_app_views_comments__form_html_erb__669646958__1017716378'
+app/views/products/show.html.erb:41:in `_app_views_products_show_html_erb___821125975__1017691408'
+Started GET "/products" for 127.0.0.1 at 2017-06-26 20:28:04 +0900
+Processing by ProductsController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering products/index.html.erb within layouts/application
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  Rendered products/index.html.erb within layouts/application (11.0ms)
+Completed 200 OK in 147ms (Views: 143.5ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/products/3" for 127.0.0.1 at 2017-06-26 20:31:19 +0900
+Processing by ProductsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mCACHE Product Load (0.0ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering products/show.html.erb within layouts/application
+  [1m[36mComment Load (0.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."product_id" = ?[0m  [["product_id", 3]]
+  Rendered comments/_form.html.erb (325.5ms)
+  Rendered products/show.html.erb within layouts/application (337.8ms)
+Completed 500 Internal Server Error in 354ms (ActiveRecord: 0.7ms)
+
+
+  
+ActionView::Template::Error (undefined local variable or method `comment' for #<#<Class:0x83b6843c>:0xb2237d0c>
+Did you mean?  @comment
+               @comments):
+    1: <%= form_with(model: comment, local: true) do |form| %>
+    2:   <% if comment.errors.any? %>
+    3:     <div id="error_explanation">
+    4:       <h2><%= pluralize(comment.errors.count, "error") %> prohibited this comment from being saved:</h2>
+  
+app/views/comments/_form.html.erb:1:in `_app_views_comments__form_html_erb__669646958__623115998'
+app/views/products/show.html.erb:41:in `_app_views_products_show_html_erb___821125975__653147788'
+Started GET "/products/3" for 127.0.0.1 at 2017-06-26 20:31:44 +0900
+Processing by ProductsController#show as HTML
+Started GET "/products" for 127.0.0.1 at 2017-06-26 20:31:54 +0900
+Started GET "/products/new" for 127.0.0.1 at 2017-06-26 20:31:54 +0900
+  Parameters: {"id"=>"3"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mCACHE Product Load (0.1ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+Completed 500 Internal Server Error in 85ms (ActiveRecord: 2.4ms)
+
+
+  
+ActiveModel::UnknownAttributeError (unknown attribute 'user_email' for Comment.):
+  
+app/controllers/products_controller.rb:15:in `show'
+Started GET "/products/new" for 127.0.0.1 at 2017-06-26 20:32:09 +0900
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by ProductsController#new as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering products/new.html.erb within layouts/application
+  Rendered products/_form.html.erb (21.3ms) [cache miss]
+  Rendered products/new.html.erb within layouts/application (42.4ms)
+Completed 200 OK in 489ms (Views: 383.4ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/products" for 127.0.0.1 at 2017-06-26 20:32:11 +0900
+Processing by ProductsController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering products/index.html.erb within layouts/application
+  [1m[36mProduct Load (4.1ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  Rendered products/index.html.erb within layouts/application (9.7ms)
+Completed 200 OK in 140ms (Views: 131.6ms | ActiveRecord: 4.3ms)
+
+
+Started GET "/products/3" for 127.0.0.1 at 2017-06-26 20:32:12 +0900
+Processing by ProductsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mProduct Load (0.4ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mCACHE Product Load (0.0ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+Completed 500 Internal Server Error in 82ms (ActiveRecord: 1.5ms)
+
+
+  
+ActiveModel::UnknownAttributeError (unknown attribute 'user_email' for Comment.):
+  
+app/controllers/products_controller.rb:15:in `show'
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to AddEmailToComment (20170626113351)
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (1.8ms)[0m  [1m[35mALTER TABLE "comments" ADD "user_email" varchar[0m
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20170626113351"]]
+  [1m[35m (14.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_unlock_token' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_unlock_token' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_confirmation_token' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_confirmation_token' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_reset_password_token' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_reset_password_token' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_email' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_email' AND type='index'
+[0m
+Started GET "/products/3" for 127.0.0.1 at 2017-06-26 20:35:15 +0900
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/products/3" for 127.0.0.1 at 2017-06-26 20:35:25 +0900
+Processing by ProductsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mProduct Load (0.3ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mCACHE Product Load (0.0ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering products/show.html.erb within layouts/application
+  [1m[36mComment Load (6.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."product_id" = ?[0m  [["product_id", 3]]
+  Rendered comments/_form.html.erb (393.1ms)
+  Rendered products/show.html.erb within layouts/application (417.1ms)
+Completed 500 Internal Server Error in 576ms (ActiveRecord: 18.5ms)
+
+
+  
+ActionView::Template::Error (undefined local variable or method `comment' for #<#<Class:0xb351c184>:0xb35172b0>
+Did you mean?  @comment
+               @comments):
+    1: <%= form_with(model: comment, local: true) do |form| %>
+    2:   <% if comment.errors.any? %>
+    3:     <div id="error_explanation">
+    4:       <h2><%= pluralize(comment.errors.count, "error") %> prohibited this comment from being saved:</h2>
+  
+app/views/comments/_form.html.erb:1:in `_app_views_comments__form_html_erb__1013973287__642814638'
+app/views/products/show.html.erb:41:in `_app_views_products_show_html_erb__377297672__643243268'
+Processing by ProductsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mCACHE Product Load (0.0ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering products/show.html.erb within layouts/application
+  [1m[36mComment Load (0.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."product_id" = ?[0m  [["product_id", 3]]
+  Rendered comments/_form.html.erb (287.6ms)
+  Rendered products/show.html.erb within layouts/application (290.0ms)
+Completed 500 Internal Server Error in 376ms (ActiveRecord: 2.4ms)
+
+
+  
+ActionView::Template::Error (undefined local variable or method `comment' for #<#<Class:0xb2d80f74>:0xb2d800c4>
+Did you mean?  @comment
+               @comments):
+    1: <%= form_with(model: comment, local: true) do |form| %>
+    2:   <% if comment.errors.any? %>
+    3:     <div id="error_explanation">
+    4:       <h2><%= pluralize(comment.errors.count, "error") %> prohibited this comment from being saved:</h2>
+  
+app/views/comments/_form.html.erb:1:in `_app_views_comments__form_html_erb__1013973287__642814638'
+app/views/products/show.html.erb:41:in `_app_views_products_show_html_erb__377297672__643243268'
+Started GET "/products" for 127.0.0.1 at 2017-06-26 20:35:28 +0900
+Processing by ProductsController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering products/index.html.erb within layouts/application
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  Rendered products/index.html.erb within layouts/application (6.4ms)
+Completed 200 OK in 103ms (Views: 98.4ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/products/3" for 127.0.0.1 at 2017-06-26 20:35:29 +0900
+Processing by ProductsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mUser Load (1.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mCACHE Product Load (0.0ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering products/show.html.erb within layouts/application
+  [1m[36mComment Load (0.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."product_id" = ?[0m  [["product_id", 3]]
+  Rendered comments/_form.html.erb (324.0ms)
+  Rendered products/show.html.erb within layouts/application (326.8ms)
+Completed 500 Internal Server Error in 351ms (ActiveRecord: 1.5ms)
+
+
+  
+ActionView::Template::Error (undefined local variable or method `comment' for #<#<Class:0xb2d80f74>:0xb331fc00>
+Did you mean?  @comment
+               @comments):
+    1: <%= form_with(model: comment, local: true) do |form| %>
+    2:   <% if comment.errors.any? %>
+    3:     <div id="error_explanation">
+    4:       <h2><%= pluralize(comment.errors.count, "error") %> prohibited this comment from being saved:</h2>
+  
+app/views/comments/_form.html.erb:1:in `_app_views_comments__form_html_erb__1013973287__642792428'
+app/views/products/show.html.erb:41:in `_app_views_products_show_html_erb__377297672__644276008'
+Started GET "/products/3" for 127.0.0.1 at 2017-06-26 20:40:14 +0900
+Processing by ProductsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mCACHE Product Load (0.0ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering products/show.html.erb within layouts/application
+  [1m[36mComment Load (0.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."product_id" = ?[0m  [["product_id", 3]]
+  Rendered comments/_form.html.erb (304.5ms)
+  Rendered products/show.html.erb within layouts/application (308.7ms)
+Completed 500 Internal Server Error in 325ms (ActiveRecord: 0.8ms)
+
+
+  
+ActionView::Template::Error (undefined local variable or method `comment' for #<#<Class:0xb2d80f74>:0xb3eed398>
+Did you mean?  @comment
+               @comments):
+    1: <%= form_for(@comment) do |form| %>
+    2:   <% if comment.errors.any? %>
+    3:     <div id="error_explanation">
+    4:       <h2><%= pluralize(comment.errors.count, "error") %> prohibited this comment from being saved:</h2>
+    5: 
+  
+app/views/comments/_form.html.erb:2:in `block in _app_views_comments__form_html_erb__1013973287__638348808'
+app/views/comments/_form.html.erb:1:in `_app_views_comments__form_html_erb__1013973287__638348808'
+app/views/products/show.html.erb:41:in `_app_views_products_show_html_erb__377297672__638094958'
+Started GET "/products/3" for 127.0.0.1 at 2017-06-26 20:40:28 +0900
+Processing by ProductsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mCACHE Product Load (0.0ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering products/show.html.erb within layouts/application
+  [1m[36mComment Load (0.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."product_id" = ?[0m  [["product_id", 3]]
+  Rendered comments/_form.html.erb (60.6ms) [cache miss]
+  Rendered products/show.html.erb within layouts/application (68.9ms)
+Completed 200 OK in 172ms (Views: 161.8ms | ActiveRecord: 0.6ms)
+
+
+Started POST "/comments" for 127.0.0.1 at 2017-06-26 20:40:33 +0900
+Processing by CommentsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"KcHbw/VtASeYj2mnbIkP+i3+fcC51jfp6W70XIQ6PEQLDojzVlEqjBLhHDdid/Xq281WWiXluxWl77iKASaI+g==", "comment"=>{"user_id"=>"", "product_id"=>"3", "body"=>"ayyy"}, "commit"=>"登録する"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[35m (1.6ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  Rendering comments/new.html.erb within layouts/application
+  Rendered comments/_form.html.erb (4.1ms) [cache miss]
+  Rendered comments/new.html.erb within layouts/application (5.5ms)
+Completed 200 OK in 78ms (Views: 60.0ms | ActiveRecord: 2.1ms)
+
+
+Started POST "/comments" for 127.0.0.1 at 2017-06-26 20:40:49 +0900
+Processing by CommentsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"ey1jhVHvVAUbRa64b0AucDq7Fmxb9FW4fjhAMteZIWlZ4jC18tN/rpEr2yhhvtRgzIg99sfH2UQyuQzkUoWV1w==", "comment"=>{"user_id"=>"", "product_id"=>"3", "body"=>"ayyy"}, "commit"=>"登録する"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  Rendering comments/new.html.erb within layouts/application
+  Rendered comments/_form.html.erb (5.2ms) [cache miss]
+  Rendered comments/new.html.erb within layouts/application (8.1ms)
+Completed 200 OK in 82ms (Views: 69.0ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/comments" for 127.0.0.1 at 2017-06-26 20:40:50 +0900
+Processing by CommentsController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering comments/index.html.erb within layouts/application
+  [1m[36mComment Load (0.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments"[0m
+  Rendered comments/index.html.erb within layouts/application (2.2ms)
+Completed 200 OK in 80ms (Views: 71.5ms | ActiveRecord: 0.6ms)
+
+
+Started POST "/comments" for 127.0.0.1 at 2017-06-26 20:40:54 +0900
+Processing by CommentsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"KcHbw/VtASeYj2mnbIkP+i3+fcC51jfp6W70XIQ6PEQLDojzVlEqjBLhHDdid/Xq281WWiXluxWl77iKASaI+g==", "comment"=>{"user_id"=>"", "product_id"=>"3", "body"=>"ayyy"}, "commit"=>"登録する"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  Rendering comments/new.html.erb within layouts/application
+  Rendered comments/_form.html.erb (5.6ms) [cache miss]
+  Rendered comments/new.html.erb within layouts/application (6.6ms)
+Completed 200 OK in 79ms (Views: 65.6ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/products" for 127.0.0.1 at 2017-06-26 20:40:56 +0900
+Processing by ProductsController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering products/index.html.erb within layouts/application
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  Rendered products/index.html.erb within layouts/application (5.4ms)
+Completed 200 OK in 92ms (Views: 89.0ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/products/3" for 127.0.0.1 at 2017-06-26 20:40:58 +0900
+Processing by ProductsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mProduct Load (3.5ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mCACHE Product Load (0.0ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering products/show.html.erb within layouts/application
+  [1m[36mComment Load (0.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."product_id" = ?[0m  [["product_id", 3]]
+  Rendered comments/_form.html.erb (6.6ms) [cache miss]
+  Rendered products/show.html.erb within layouts/application (13.2ms)
+Completed 200 OK in 154ms (Views: 142.8ms | ActiveRecord: 3.9ms)
+
+
+Started POST "/comments" for 127.0.0.1 at 2017-06-26 20:40:59 +0900
+Processing by CommentsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"t9dCOci3rkRF1dUiV8j2uOKwPKbr22vF4Tt+xFDuxTs3+eaDeNr2rEUOhkK/vnW6fSPxgoe+9Moy5jbAcIkNsA==", "comment"=>{"user_email"=>"g.fail.sp@gmail.com", "product_id"=>"3", "body"=>""}, "commit"=>"登録する"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+Unpermitted parameter: :user_email
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  Rendering comments/new.html.erb within layouts/application
+  Rendered comments/_form.html.erb (4.0ms) [cache miss]
+  Rendered comments/new.html.erb within layouts/application (8.6ms)
+Completed 200 OK in 120ms (Views: 103.2ms | ActiveRecord: 0.6ms)
+
+
+Started POST "/comments" for 127.0.0.1 at 2017-06-26 20:41:18 +0900
+Processing by CommentsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"t9dCOci3rkRF1dUiV8j2uOKwPKbr22vF4Tt+xFDuxTs3+eaDeNr2rEUOhkK/vnW6fSPxgoe+9Moy5jbAcIkNsA==", "comment"=>{"user_email"=>"g.fail.sp@gmail.com", "product_id"=>"3", "body"=>"aaaa"}, "commit"=>"登録する"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+Unpermitted parameter: :user_email
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  Rendering comments/new.html.erb within layouts/application
+  Rendered comments/_form.html.erb (2.0ms) [cache miss]
+  Rendered comments/new.html.erb within layouts/application (4.7ms)
+Completed 200 OK in 77ms (Views: 63.9ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/products" for 127.0.0.1 at 2017-06-26 20:44:12 +0900
+Processing by ProductsController#index as HTML
+  [1m[36mUser Load (2.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering products/index.html.erb within layouts/application
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  Rendered products/index.html.erb within layouts/application (12.4ms)
+Completed 200 OK in 226ms (Views: 212.2ms | ActiveRecord: 2.9ms)
+
+
+Started DELETE "/users/sign_out" for 127.0.0.1 at 2017-06-26 20:44:14 +0900
+Processing by Devise::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"C3Lbc8BFxvQIeMz2mtQMyBSvVLv1mdqKC9xsODtD+kIpvYhDY3ntX4IWuWaUKvbY4px/IWmqVnZHXSDuvl9O/A=="}
+  [1m[36mUser Load (1.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 9ms (ActiveRecord: 1.7ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-06-26 20:44:14 +0900
+Processing by ProductsController#index as HTML
+Completed 401 Unauthorized in 6ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2017-06-26 20:44:14 +0900
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (2.1ms) [cache miss]
+  Rendered devise/sessions/new.html.erb within layouts/application (2.9ms)
+Completed 200 OK in 56ms (Views: 54.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/auth/google" for 127.0.0.1 at 2017-06-26 20:44:15 +0900
+Started GET "/users/auth/google" for 127.0.0.1 at 2017-06-26 20:44:15 +0900
+Started GET "/users/auth/google/callback?state=8f707e9c3e57b6cbc740318d8e467ec49b21a1ecf6f31623&code=4/JrQV7IxnzraTRr4yV7yyDVxEnJgwB3a3pHC7FXr8QqA" for 127.0.0.1 at 2017-06-26 20:44:17 +0900
+Processing by Users::OmniauthCallbacksController#google as HTML
+  Parameters: {"state"=>"8f707e9c3e57b6cbc740318d8e467ec49b21a1ecf6f31623", "code"=>"4/JrQV7IxnzraTRr4yV7yyDVxEnJgwB3a3pHC7FXr8QqA"}
+  [1m[36mUser Load (3.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["email", "g.fail.sp@gmail.com"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (2.7ms)[0m  [1m[33mUPDATE "users" SET "current_sign_in_at" = ?, "last_sign_in_at" = ?, "sign_in_count" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["current_sign_in_at", "2017-06-26 11:44:18.536750"], ["last_sign_in_at", "2017-06-26 11:24:55.781766"], ["sign_in_count", 7], ["updated_at", "2017-06-26 11:44:18.540173"], ["id", 3]]
+  [1m[35m (17.7ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 38ms (ActiveRecord: 23.7ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-06-26 20:44:18 +0900
+Processing by ProductsController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering products/index.html.erb within layouts/application
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  Rendered products/index.html.erb within layouts/application (9.6ms)
+Completed 200 OK in 152ms (Views: 142.7ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/products/3" for 127.0.0.1 at 2017-06-26 20:44:21 +0900
+Processing by ProductsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mCACHE Product Load (0.0ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering products/show.html.erb within layouts/application
+  [1m[36mComment Load (0.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."product_id" = ?[0m  [["product_id", 3]]
+  Rendered comments/_form.html.erb (2.1ms) [cache miss]
+  Rendered products/show.html.erb within layouts/application (14.5ms)
+Completed 200 OK in 87ms (Views: 78.8ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/products/3" for 127.0.0.1 at 2017-06-26 20:44:25 +0900
+Processing by ProductsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mCACHE Product Load (0.0ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering products/show.html.erb within layouts/application
+  [1m[36mComment Load (0.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."product_id" = ?[0m  [["product_id", 3]]
+  Rendered comments/_form.html.erb (2.4ms) [cache miss]
+  Rendered products/show.html.erb within layouts/application (16.0ms)
+Completed 200 OK in 169ms (Views: 155.0ms | ActiveRecord: 0.7ms)
+
+
+Started POST "/comments" for 127.0.0.1 at 2017-06-26 20:44:28 +0900
+Processing by CommentsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"+2k/44tjWU720Aml+MjnGXkuJ99FSnDiAtJ79IL6ZYLnx5xc2h+UdzzAzeS1cabLOBauXHkWp7zr4rH0NHkcOQ==", "comment"=>{"user_email"=>"g.fail.sp@gmail.com", "product_id"=>"3", "body"=>"aaaaa"}, "commit"=>"登録する"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+Unpermitted parameter: :user_email
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  Rendering comments/new.html.erb within layouts/application
+  Rendered comments/_form.html.erb (6.9ms) [cache miss]
+  Rendered comments/new.html.erb within layouts/application (10.0ms)
+Completed 200 OK in 85ms (Views: 67.7ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/comments" for 127.0.0.1 at 2017-06-26 20:44:30 +0900
+Processing by CommentsController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering comments/index.html.erb within layouts/application
+  [1m[36mComment Load (0.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments"[0m
+  Rendered comments/index.html.erb within layouts/application (6.8ms)
+Completed 200 OK in 78ms (Views: 73.8ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/comments/new" for 127.0.0.1 at 2017-06-26 20:45:11 +0900
+Processing by CommentsController#new as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering comments/new.html.erb within layouts/application
+  Rendered comments/_form.html.erb (1.8ms) [cache miss]
+  Rendered comments/new.html.erb within layouts/application (2.7ms)
+Completed 200 OK in 59ms (Views: 55.7ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/comments" for 127.0.0.1 at 2017-06-26 20:45:12 +0900
+Processing by CommentsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"A3AunuOsn94nHL7WrDVmSTHqqRna6N+PlB4HXyDk6kQf3o0hstBS5+0MepfhjCebcNIgmua0CNF9Ls1flmeT/w==", "comment"=>{"user_id"=>"", "product_id"=>"", "body"=>"aaa"}, "commit"=>"登録する"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  Rendering comments/new.html.erb within layouts/application
+  Rendered comments/_form.html.erb (7.6ms) [cache miss]
+  Rendered comments/new.html.erb within layouts/application (8.6ms)
+Completed 200 OK in 73ms (Views: 63.9ms | ActiveRecord: 0.5ms)
+
+
+Started POST "/comments" for 127.0.0.1 at 2017-06-26 20:45:17 +0900
+Processing by CommentsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"WJGZ5Bd27Iu0sOZPgiu1YtLoKWGfYhDPWQUCORzOHr4/MFehAEo33scr3CV9r7hyxpKc+FBaQIPrCA7zjhH59w==", "comment"=>{"user_id"=>"", "product_id"=>"", "body"=>"aaa"}, "commit"=>"登録する"}
+  [1m[36mUser Load (1.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  Rendering comments/new.html.erb within layouts/application
+  Rendered comments/_form.html.erb (1.9ms) [cache miss]
+  Rendered comments/new.html.erb within layouts/application (5.9ms)
+Completed 200 OK in 102ms (Views: 93.5ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/products/3" for 127.0.0.1 at 2017-06-26 20:45:20 +0900
+Processing by ProductsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mCACHE Product Load (0.0ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering products/show.html.erb within layouts/application
+  [1m[36mComment Load (0.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."product_id" = ?[0m  [["product_id", 3]]
+  Rendered comments/_form.html.erb (14.1ms) [cache miss]
+  Rendered products/show.html.erb within layouts/application (22.7ms)
+Completed 200 OK in 108ms (Views: 98.7ms | ActiveRecord: 0.7ms)
+
+
+Started POST "/comments" for 127.0.0.1 at 2017-06-26 20:45:22 +0900
+Processing by CommentsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"SLczYD/nCmPFx5WT5JZeh1/tbQf4tWRcJY6PrnsktqQvFv0lKNvRNrZcr/kbElOXS5fYnjeNNBCXg4Nk6ftR7Q==", "comment"=>{"user_id"=>"", "product_id"=>"3", "body"=>"aaaa"}, "commit"=>"登録する"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mProduct Load (0.3ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  Rendering comments/new.html.erb within layouts/application
+  Rendered comments/_form.html.erb (8.7ms) [cache miss]
+  Rendered comments/new.html.erb within layouts/application (10.5ms)
+Completed 200 OK in 81ms (Views: 65.0ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/comments" for 127.0.0.1 at 2017-06-26 20:45:24 +0900
+Processing by CommentsController#index as HTML
+  [1m[36mUser Load (3.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering comments/index.html.erb within layouts/application
+  [1m[36mComment Load (0.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments"[0m
+  Rendered comments/index.html.erb within layouts/application (3.4ms)
+Completed 200 OK in 75ms (Views: 69.0ms | ActiveRecord: 3.9ms)
+
+
+Started GET "/comments/new" for 127.0.0.1 at 2017-06-26 20:45:25 +0900
+Processing by CommentsController#new as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering comments/new.html.erb within layouts/application
+  Rendered comments/_form.html.erb (5.9ms) [cache miss]
+  Rendered comments/new.html.erb within layouts/application (7.3ms)
+Completed 200 OK in 89ms (Views: 85.4ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/comments" for 127.0.0.1 at 2017-06-26 20:45:27 +0900
+Processing by CommentsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"rY2H4MvkQ1KmmMqD+fKDxY8+M6gol4faLpdyndYO1rSxIyRfmpiOa2yIDsK0S8IXzga6KxTLUITHp7idYI2vDw==", "comment"=>{"user_id"=>"", "product_id"=>"", "body"=>"aaaaa"}, "commit"=>"登録する"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  Rendering comments/new.html.erb within layouts/application
+  Rendered comments/_form.html.erb (3.1ms) [cache miss]
+  Rendered comments/new.html.erb within layouts/application (5.5ms)
+Completed 200 OK in 79ms (Views: 64.7ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/comments" for 127.0.0.1 at 2017-06-26 20:45:30 +0900
+Processing by CommentsController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering comments/index.html.erb within layouts/application
+  [1m[36mComment Load (0.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments"[0m
+  Rendered comments/index.html.erb within layouts/application (4.0ms)
+Completed 200 OK in 62ms (Views: 57.3ms | ActiveRecord: 0.5ms)
+
+
+Started POST "/comments" for 127.0.0.1 at 2017-06-26 20:45:33 +0900
+Processing by CommentsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"rY2H4MvkQ1KmmMqD+fKDxY8+M6gol4faLpdyndYO1rSxIyRfmpiOa2yIDsK0S8IXzga6KxTLUITHp7idYI2vDw==", "comment"=>{"user_id"=>"", "product_id"=>"", "body"=>"aaaaa"}, "commit"=>"登録する"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  Rendering comments/new.html.erb within layouts/application
+  Rendered comments/_form.html.erb (1.9ms) [cache miss]
+  Rendered comments/new.html.erb within layouts/application (4.2ms)
+Completed 200 OK in 86ms (Views: 75.5ms | ActiveRecord: 0.4ms)
+
+

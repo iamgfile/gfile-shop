@@ -6,7 +6,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable,
          :confirmable, :lockable, :timeoutable,
 	 :omniauthable
-
+  has_many :comments
   def self.find_for_google(auth)
     if user = User.where(email: auth.info.email).first
       user

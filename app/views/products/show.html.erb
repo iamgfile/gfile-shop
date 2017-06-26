@@ -24,3 +24,20 @@
 
 <%= link_to 'Edit', edit_product_path(@product) %> |
 <%= link_to 'Back', products_path %>
+
+
+<div>
+  <% @comments.each do |comment| %>
+    <div>
+      <strong><%= comment.user.user_name %></strong>
+      <br />
+      <p><%= comment.body %></p>
+      <% if user_signed_in? && comment.user == current_user %>
+        <p><%= link_to 'Delete', comment_path(comment), method: :delete %></p>
+      <% end %>
+    </div>
+  <% end %>
+  <% if user_signed_in? %>
+    <%= render 'comments/form' %>
+  <% end %>
+</div>
