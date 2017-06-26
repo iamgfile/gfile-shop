@@ -65,4 +65,4 @@ gem 'rqrcode-rails3'
 
 gem 'omniauth'
 gem 'omniauth-facebook'
-gem 'dotenv'
+gem 'dotenv-rails'
