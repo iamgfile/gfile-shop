@@ -2347,3 +2347,320 @@ Processing by Devise::SessionsController#new as HTML
 Completed 200 OK in 92ms (Views: 91.5ms | ActiveRecord: 0.0ms)
 
 
+Started GET "/users/auth/google" for 127.0.0.1 at 2017-06-26 18:39:39 +0900
+Started GET "/users/auth/google" for 127.0.0.1 at 2017-06-26 18:39:39 +0900
+Started GET "/users/auth/google/callback?state=c64dea18a66328436534b9a450726bd5446045bcf7780ce0&code=4/O5BFzKXL88TeTvWNIk59qjBLpRZ2NX-Ma74m8giDEIc" for 127.0.0.1 at 2017-06-26 18:39:42 +0900
+Processing by Users::OmniauthCallbacksController#google as HTML
+  Parameters: {"state"=>"c64dea18a66328436534b9a450726bd5446045bcf7780ce0", "code"=>"4/O5BFzKXL88TeTvWNIk59qjBLpRZ2NX-Ma74m8giDEIc"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["email", "g.fail.sp@gmail.com"], ["LIMIT", 1]]
+  [1m[35m (0.9ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (6.3ms)[0m  [1m[33mUPDATE "users" SET "current_sign_in_at" = ?, "last_sign_in_at" = ?, "sign_in_count" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["current_sign_in_at", "2017-06-26 09:39:42.755521"], ["last_sign_in_at", "2017-06-26 09:36:53.158115"], ["sign_in_count", 3], ["updated_at", "2017-06-26 09:39:42.757453"], ["id", 3]]
+  [1m[35m (5.1ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 23ms (ActiveRecord: 12.8ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-06-26 18:39:42 +0900
+Processing by ProductsController#index as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering products/index.html.erb within layouts/application
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  Rendered products/index.html.erb within layouts/application (2.5ms)
+Completed 200 OK in 68ms (Views: 64.6ms | ActiveRecord: 0.7ms)
+
+
+Started DELETE "/users/sign_out" for 127.0.0.1 at 2017-06-26 18:39:44 +0900
+Processing by Devise::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"xEihO1dcXQAIha5Jb2n1ZJ8beVkYU3P6X9EKgUBDdLON001++sZCwpS+NzOe9nk05anJRAYlOMAS9KKRHePNuA=="}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 9ms (ActiveRecord: 0.3ms)
+
+
+Started DELETE "/users/sign_out" for 127.0.0.1 at 2017-06-26 18:39:44 +0900
+Processing by Devise::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"xEihO1dcXQAIha5Jb2n1ZJ8beVkYU3P6X9EKgUBDdLON001++sZCwpS+NzOe9nk05anJRAYlOMAS9KKRHePNuA=="}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 6ms (ActiveRecord: 0.3ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-06-26 18:39:44 +0900
+Processing by ProductsController#index as HTML
+Completed 401 Unauthorized in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2017-06-26 18:39:44 +0900
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (1.0ms) [cache miss]
+  Rendered devise/sessions/new.html.erb within layouts/application (4.2ms)
+Completed 200 OK in 52ms (Views: 51.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/auth/google" for 127.0.0.1 at 2017-06-26 18:40:57 +0900
+Started GET "/users/auth/google" for 127.0.0.1 at 2017-06-26 18:40:57 +0900
+Started GET "/users/auth/google/callback?state=647cfa2256c04c4d53d149ce079dbfec026585236f77507c&code=4/AKDKNxTRfGmc6Sapnd1XrWtbVq2At_63cW7-DLa71HA" for 127.0.0.1 at 2017-06-26 18:40:59 +0900
+Processing by Users::OmniauthCallbacksController#google as HTML
+  Parameters: {"state"=>"647cfa2256c04c4d53d149ce079dbfec026585236f77507c", "code"=>"4/AKDKNxTRfGmc6Sapnd1XrWtbVq2At_63cW7-DLa71HA"}
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["email", "g.fail.sp@gmail.com"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (7.4ms)[0m  [1m[33mUPDATE "users" SET "current_sign_in_at" = ?, "last_sign_in_at" = ?, "sign_in_count" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["current_sign_in_at", "2017-06-26 09:40:59.905927"], ["last_sign_in_at", "2017-06-26 09:39:42.755521"], ["sign_in_count", 4], ["updated_at", "2017-06-26 09:40:59.920386"], ["id", 3]]
+  [1m[35m (5.3ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 43ms (ActiveRecord: 13.6ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-06-26 18:40:59 +0900
+Processing by ProductsController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering products/index.html.erb within layouts/application
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  Rendered products/index.html.erb within layouts/application (9.3ms)
+Completed 200 OK in 65ms (Views: 61.8ms | ActiveRecord: 0.6ms)
+
+
+Started DELETE "/users/sign_out" for 127.0.0.1 at 2017-06-26 18:41:01 +0900
+Processing by Devise::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"7npn2FdQve9eNu6OxsqWdPNfCU9LigzNFDH9aVvFQ/IODqZsaNiiRGSRpRlm164+pWzl2KnXJtQ0KMi1OxcHHg=="}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 7ms (ActiveRecord: 0.3ms)
+
+
+Started DELETE "/users/sign_out" for 127.0.0.1 at 2017-06-26 18:41:01 +0900
+Processing by Devise::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"7npn2FdQve9eNu6OxsqWdPNfCU9LigzNFDH9aVvFQ/IODqZsaNiiRGSRpRlm164+pWzl2KnXJtQ0KMi1OxcHHg=="}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 9ms (ActiveRecord: 0.4ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-06-26 18:41:01 +0900
+Processing by ProductsController#index as HTML
+Completed 401 Unauthorized in 0ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2017-06-26 18:41:01 +0900
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/sessions/new.html.erb within layouts/application (465.9ms)
+Completed 500 Internal Server Error in 471ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionView::Template::Error (undefined method `user_omniauth_authorize_path' for #<#<Class:0xb244e000>:0xb397e380>
+Did you mean?  user_google_omniauth_authorize_path):
+    17:       <%= f.label :remember_me %>
+    18:     </div>
+    19:   <% end -%>
+    20:     <%= link_to 'Signin with Google', user_omniauth_authorize_path(:google) %>
+    21: 
+    22:   <div class="actions">
+    23:     <%= f.submit "Log in" %>
+  
+app/views/devise/sessions/new.html.erb:20:in `block in _app_views_devise_sessions_new_html_erb___780323496__640946998'
+app/views/devise/sessions/new.html.erb:3:in `_app_views_devise_sessions_new_html_erb___780323496__640946998'
+Started GET "/users/sign_in" for 127.0.0.1 at 2017-06-26 18:41:31 +0900
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (1.3ms) [cache miss]
+  Rendered devise/sessions/new.html.erb within layouts/application (19.4ms)
+Completed 200 OK in 89ms (Views: 87.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/auth/google.google" for 127.0.0.1 at 2017-06-26 18:41:33 +0900
+Processing by Users::OmniauthCallbacksController#passthru as 
+  Rendering text template
+  Rendered text template (0.0ms)
+Completed 404 Not Found in 52ms (Views: 51.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/auth/google.google" for 127.0.0.1 at 2017-06-26 18:41:39 +0900
+Processing by Users::OmniauthCallbacksController#passthru as 
+  Rendering text template
+  Rendered text template (0.0ms)
+Completed 404 Not Found in 5ms (Views: 4.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/auth/google.google" for 127.0.0.1 at 2017-06-26 18:41:43 +0900
+Processing by Users::OmniauthCallbacksController#passthru as 
+  Rendering text template
+  Rendered text template (0.0ms)
+Completed 404 Not Found in 2ms (Views: 1.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/auth/google" for 127.0.0.1 at 2017-06-26 18:41:48 +0900
+Started GET "/users/auth/google" for 127.0.0.1 at 2017-06-26 18:41:48 +0900
+Started GET "/users/sign_in" for 127.0.0.1 at 2017-06-26 18:43:01 +0900
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (1.7ms) [cache miss]
+  Rendered devise/sessions/new.html.erb within layouts/application (2.9ms)
+Completed 200 OK in 112ms (Views: 89.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/auth/google.google" for 127.0.0.1 at 2017-06-26 18:43:03 +0900
+Processing by Users::OmniauthCallbacksController#passthru as 
+  Rendering text template
+  Rendered text template (0.0ms)
+Completed 404 Not Found in 2ms (Views: 1.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/auth/google.google" for 127.0.0.1 at 2017-06-26 18:43:09 +0900
+Processing by Users::OmniauthCallbacksController#passthru as 
+  Rendering text template
+  Rendered text template (0.0ms)
+Completed 404 Not Found in 1ms (Views: 0.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2017-06-26 18:44:47 +0900
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/sessions/new.html.erb within layouts/application (6.7ms)
+Completed 500 Internal Server Error in 19ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionView::Template::Error (wrong number of arguments (given 1, expected 2+)):
+    1: <h2>Log in</h2>
+    2: 
+    3:   <%= link_to 'Signin with Google', omniauth_authorize_path(:google) %>
+    4: 
+    5: a  
+    6: 
+  
+app/views/devise/sessions/new.html.erb:3:in `_app_views_devise_sessions_new_html_erb___780323496__639656188'
+Started GET "/users/sign_in" for 127.0.0.1 at 2017-06-26 18:44:58 +0900
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/sessions/new.html.erb within layouts/application (294.5ms)
+Completed 500 Internal Server Error in 300ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionView::Template::Error (undefined method `user_omniauth_authorize_path' for #<#<Class:0xb244e000>:0xb39e6d2c>
+Did you mean?  user_google_omniauth_authorize_path):
+    1: <h2>Log in</h2>
+    2: 
+    3:   <%= link_to 'Signin with Google', user_omniauth_authorize_path(:google) %>
+    4: 
+    5: a  
+    6: 
+  
+app/views/devise/sessions/new.html.erb:3:in `_app_views_devise_sessions_new_html_erb___780323496__640732948'
+Started GET "/users/" for 127.0.0.1 at 2017-06-26 18:46:03 +0900
+  
+ActionController::RoutingError (No route matches [GET] "/users"):
+  
+actionpack (5.1.1) lib/action_dispatch/middleware/debug_exceptions.rb:63:in `call'
+web-console (3.5.1) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.5.1) lib/web_console/middleware.rb:28:in `block in call'
+web-console (3.5.1) lib/web_console/middleware.rb:18:in `catch'
+web-console (3.5.1) lib/web_console/middleware.rb:18:in `call'
+actionpack (5.1.1) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.1.1) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.1.1) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.1.1) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.1.1) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.1.1) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.1.1) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.0) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.1.1) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.1.1) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+rack (2.0.3) lib/rack/method_override.rb:22:in `call'
+rack (2.0.3) lib/rack/runtime.rb:22:in `call'
+activesupport (5.1.1) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+actionpack (5.1.1) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.1) lib/action_dispatch/middleware/static.rb:125:in `call'
+rack (2.0.3) lib/rack/sendfile.rb:111:in `call'
+railties (5.1.1) lib/rails/engine.rb:522:in `call'
+puma (3.9.1) lib/puma/configuration.rb:224:in `call'
+puma (3.9.1) lib/puma/server.rb:602:in `handle_request'
+puma (3.9.1) lib/puma/server.rb:435:in `process_client'
+puma (3.9.1) lib/puma/server.rb:299:in `block in run'
+puma (3.9.1) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+Started GET "/" for 127.0.0.1 at 2017-06-26 18:46:07 +0900
+Processing by ProductsController#index as HTML
+Completed 401 Unauthorized in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2017-06-26 18:46:08 +0900
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (1.2ms) [cache miss]
+  Rendered devise/sessions/new.html.erb within layouts/application (4.2ms)
+Completed 200 OK in 61ms (Views: 60.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/auth/google" for 127.0.0.1 at 2017-06-26 18:46:09 +0900
+Started GET "/users/auth/google" for 127.0.0.1 at 2017-06-26 18:46:10 +0900
+Started GET "/users/auth/google/callback?state=f83b647c79cdd3720edf0e65eb60595fdc86d9153b2faadf&code=4/vT3aXhWP94oPwOrVe8iIy0_gA4XjgIhz8LvWeapNFUc" for 127.0.0.1 at 2017-06-26 18:46:12 +0900
+Processing by Users::OmniauthCallbacksController#google as HTML
+  Parameters: {"state"=>"f83b647c79cdd3720edf0e65eb60595fdc86d9153b2faadf", "code"=>"4/vT3aXhWP94oPwOrVe8iIy0_gA4XjgIhz8LvWeapNFUc"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["email", "g.fail.sp@gmail.com"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (5.3ms)[0m  [1m[33mUPDATE "users" SET "current_sign_in_at" = ?, "last_sign_in_at" = ?, "sign_in_count" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["current_sign_in_at", "2017-06-26 09:46:13.109042"], ["last_sign_in_at", "2017-06-26 09:40:59.905927"], ["sign_in_count", 5], ["updated_at", "2017-06-26 09:46:13.113073"], ["id", 3]]
+  [1m[35m (11.1ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 31ms (ActiveRecord: 17.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-06-26 18:46:13 +0900
+Processing by ProductsController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering products/index.html.erb within layouts/application
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  Rendered products/index.html.erb within layouts/application (3.8ms)
+Completed 200 OK in 50ms (Views: 47.6ms | ActiveRecord: 0.4ms)
+
+
+Started DELETE "/users/sign_out" for 127.0.0.1 at 2017-06-26 18:46:15 +0900
+Processing by Devise::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"XRIfG44EJ5KCzZHg1H6Eo/aoAKM05l3cSFgYkd5EdN8d6FirF1U6cZdinUgSv5wy8PXZ+78KeR5en4STddTsvA=="}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 11ms (ActiveRecord: 0.4ms)
+
+
+Started DELETE "/users/sign_out" for 127.0.0.1 at 2017-06-26 18:46:15 +0900
+Processing by Devise::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"XRIfG44EJ5KCzZHg1H6Eo/aoAKM05l3cSFgYkd5EdN8d6FirF1U6cZdinUgSv5wy8PXZ+78KeR5en4STddTsvA=="}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 3ms (ActiveRecord: 0.3ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-06-26 18:46:15 +0900
+Processing by ProductsController#index as HTML
+Completed 401 Unauthorized in 0ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2017-06-26 18:46:15 +0900
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (1.4ms) [cache miss]
+  Rendered devise/sessions/new.html.erb within layouts/application (2.6ms)
+Completed 200 OK in 57ms (Views: 55.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2017-06-26 18:46:25 +0900
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (1.0ms) [cache miss]
+  Rendered devise/registrations/new.html.erb within layouts/application (3.5ms)
+Completed 200 OK in 56ms (Views: 55.5ms | ActiveRecord: 0.0ms)
+
+
