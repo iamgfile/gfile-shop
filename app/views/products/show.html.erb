@@ -21,20 +21,23 @@
 <p>
   <%= image_tag(@product.image_url) if @product.image.present? %>
 </p>
-
-<%= link_to 'Edit', edit_product_path(@product) %> |
-<%= link_to 'Back', products_path %>
-
-
+<div class="text-right">
+  <%= link_to 'Edit', edit_product_path(@product),class: 'btn btn-warning' %> 
+  <%= link_to 'Back', products_path,class: 'btn btn-default' %>
+</div>
+this is the comment section
 <div>
   <% @comments.each do |comment| %>
     <div>
-      <strong><%= comment.user.user_name %></strong>
-      <br />
-      <p><%= comment.body %></p>
+      <blockquote>
+        <p><%= comment.body %></p>
+      <footer><%= comment.user_id %></footer>
+      </blockquote>
       <% if user_signed_in? && comment.user == current_user %>
-        <p><%= link_to 'Delete', comment_path(comment), method: :delete %></p>
-      <% end %>
+        <div class="text-right">  
+          <p><%= link_to 'Delete this comment', comment_path(comment), method: :delete,class: 'btn btn-danger' %></p>
+        </div>
+        <% end %>
     </div>
   <% end %>
   <% if user_signed_in? %>
