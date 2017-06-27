@@ -31,7 +31,7 @@ this is the comment section
     <div>
       <blockquote>
         <p><%= comment.body %></p>
-      <footer><%= comment.user_id %></footer>
+	<footer><%= comment.user_id %><%= @user.find_by(id: comment.user_id)['email'] %></footer>
       </blockquote>
       <% if user_signed_in? && comment.user == current_user %>
         <div class="text-right">  

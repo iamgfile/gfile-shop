@@ -13,6 +13,7 @@ class ProductsController < ApplicationController
     @product = Product.find(params[:id])
     @comments = @product.comments.includes(:user).all
     @comment  = @product.comments.build(user_id: current_user.id) if current_user
+    @user = User.all
   end
 
   # GET /products/new

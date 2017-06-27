@@ -19,6 +19,7 @@ class User < ApplicationRecord
       user.skip_confirmation!
       user.save!
     end
+    user
   end    
 
 
